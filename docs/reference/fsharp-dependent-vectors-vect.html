@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Vect - FSharp.Dependent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="cannorin"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/FSharp.Dependent/content/style.css" />
+    <script type="text/javascript" src="/FSharp.Dependent/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="https://github.com/cannorin/FSharp.Dependent">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/FSharp.Dependent/index.html">FSharp.Dependent</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>Vect</h1>
+<p>
+  <span>Namespace: FSharp.Dependent</span><br />
+  <span>Parent Module: <a href="fsharp-dependent-vectors.html">Vectors</a></span>
+</p>
+<div class="xmldoc">
+<p>Vector utility functions.
+Clone of size-sensitive functions from the List module.</p>
+
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '15', 15)" onmouseover="showTip(event, '15', 15)">
+            append xs ys
+          </code>
+          <div class="tip" id="15">
+            <strong>Signature:</strong> xs:Vect&lt;^NatX,&#39;a&gt; -&gt; ys:Vect&lt;^NatY,&#39;a&gt; -&gt; Vect&lt;^?11370,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> ^NatX, ^NatY, ^?11370, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L125-125" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '16', 16)" onmouseover="showTip(event, '16', 16)">
+            choose f xs
+          </code>
+          <div class="tip" id="16">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b option) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;RangedNat&lt;Z,^Nat&#39;&gt;,&#39;b&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b, ^Nat, ^?11342, ^Nat'          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L103-103" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '17', 17)" onmouseover="showTip(event, '17', 17)">
+            chunkBySize n xs
+          </code>
+          <div class="tip" id="17">
+            <strong>Signature:</strong> n:^NatN -&gt; xs:Vect&lt;^NatXS,&#39;a&gt; -&gt; Vect&lt;RangedNat&lt;Z,^NatXS&#39;&gt;,Vect&lt;RangedNat&lt;Z,^NatN&#39;&gt;,&#39;a&gt;&gt;<br />
+                          <strong>Type parameters:</strong> ^NatN, ^?11346, ^?11347, ^NatN', ^NatXS, ^?11350, ^NatXS', 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L108-108" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '18', 18)" onmouseover="showTip(event, '18', 18)">
+            countBy f xs
+          </code>
+          <div class="tip" id="18">
+            <strong>Signature:</strong> f:(&#39;?11354 -&gt; &#39;?11355) -&gt; xs:Vect&lt;^?11356,&#39;?11354&gt; -&gt; Vect&lt;RangedNat&lt;Z,^?11358&gt;,(&#39;?11355 * int)&gt;<br />
+                          <strong>Type parameters:</strong> '?11354, '?11355, ^?11356, ^?11357, ^?11358          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L114-114" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '19', 19)" onmouseover="showTip(event, '19', 19)">
+            distinct xs
+          </code>
+          <div class="tip" id="19">
+            <strong>Signature:</strong> xs:Vect&lt;^?11360,&#39;?11363&gt; -&gt; Vect&lt;RangedNat&lt;Z,^?11362&gt;,&#39;?11363&gt;<br />
+                          <strong>Type parameters:</strong> ^?11360, ^?11361, ^?11362, '?11363          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L118-118" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '20', 20)" onmouseover="showTip(event, '20', 20)">
+            empty 
+          </code>
+          <div class="tip" id="20">
+            <strong>Signature:</strong> Vect&lt;Z,&#39;?11263&gt;<br />
+                          <strong>Type parameters:</strong> '?11263          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L25-25" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '21', 21)" onmouseover="showTip(event, '21', 21)">
+            exists2 f xs ys
+          </code>
+          <div class="tip" id="21">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; bool) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; bool<br />
+                          <strong>Type parameters:</strong> 'a, 'b, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L91-91" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '22', 22)" onmouseover="showTip(event, '22', 22)">
+            filter f xs
+          </code>
+          <div class="tip" id="22">
+            <strong>Signature:</strong> f:(&#39;a -&gt; bool) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;RangedNat&lt;Z,^Nat&#39;&gt;,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a, ^Nat, ^?11315, ^Nat'          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L74-74" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '23', 23)" onmouseover="showTip(event, '23', 23)">
+            findIndex f xs
+          </code>
+          <div class="tip" id="23">
+            <strong>Signature:</strong> f:(&#39;?11331 -&gt; bool) -&gt; xs:Vect&lt;S&lt;^Nat&gt;,&#39;?11331&gt; -&gt; RangedNat&lt;Z,^Nat&gt;<br />
+                          <strong>Type parameters:</strong> '?11331, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L95-95" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '24', 24)" onmouseover="showTip(event, '24', 24)">
+            fold2 f state xs ys
+          </code>
+          <div class="tip" id="24">
+            <strong>Signature:</strong> f:(&#39;?11300 -&gt; &#39;a -&gt; &#39;b -&gt; &#39;?11300) -&gt; state:&#39;?11300 -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; &#39;?11300<br />
+                          <strong>Type parameters:</strong> '?11300, 'a, 'b, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L61-61" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '25', 25)" onmouseover="showTip(event, '25', 25)">
+            foldBack2 f xs ys state
+          </code>
+          <div class="tip" id="25">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; &#39;?11307 -&gt; &#39;?11307) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; state:&#39;?11307 -&gt; &#39;?11307<br />
+                          <strong>Type parameters:</strong> 'a, 'b, '?11307, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L66-66" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '26', 26)" onmouseover="showTip(event, '26', 26)">
+            forall2 f xs ys
+          </code>
+          <div class="tip" id="26">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; bool) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; bool<br />
+                          <strong>Type parameters:</strong> 'a, 'b, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L86-86" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '27', 27)" onmouseover="showTip(event, '27', 27)">
+            head xs
+          </code>
+          <div class="tip" id="27">
+            <strong>Signature:</strong> xs:Vect&lt;^Nat,&#39;?11375&gt; -&gt; &#39;?11375<br />
+                          <strong>Type parameters:</strong> ^Nat, ^?11374, '?11375          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L129-129" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if <code>xs</code> is <code>VNil</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '28', 28)" onmouseover="showTip(event, '28', 28)">
+            init n f
+          </code>
+          <div class="tip" id="28">
+            <strong>Signature:</strong> n:^Nat -&gt; f:(int -&gt; &#39;a) -&gt; Vect&lt;^Nat,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> ^Nat, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L149-149" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '29', 29)" onmouseover="showTip(event, '29', 29)">
+            item n xs
+          </code>
+          <div class="tip" id="29">
+            <strong>Signature:</strong> n:^NatN -&gt; xs:Vect&lt;^NatXS,&#39;a&gt; -&gt; &#39;a<br />
+                          <strong>Type parameters:</strong> ^NatN, ^?11387, ^?11388, ^NatXS, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L145-145" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if <code>n</code> is out of range of <code>xs</code>.
+Be aware that <code>n</code> start from 0.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '30', 30)" onmouseover="showTip(event, '30', 30)">
+            iter2 f xs ys
+          </code>
+          <div class="tip" id="30">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; unit) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a, 'b, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L51-51" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '31', 31)" onmouseover="showTip(event, '31', 31)">
+            iteri2 f xs ys
+          </code>
+          <div class="tip" id="31">
+            <strong>Signature:</strong> f:(int -&gt; &#39;a -&gt; &#39;b -&gt; unit) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a, 'b, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L56-56" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '32', 32)" onmouseover="showTip(event, '32', 32)">
+            length xs
+          </code>
+          <div class="tip" id="32">
+            <strong>Signature:</strong> xs:Vect&lt;^?11265,&#39;?11266&gt; -&gt; ^?11265<br />
+                          <strong>Type parameters:</strong> ^?11265, '?11266          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L27-27" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '33', 33)" onmouseover="showTip(event, '33', 33)">
+            map f xs
+          </code>
+          <div class="tip" id="33">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;?11269) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;^Nat,&#39;?11269&gt;<br />
+                          <strong>Type parameters:</strong> 'a, '?11269, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L29-29" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '34', 34)" onmouseover="showTip(event, '34', 34)">
+            map2 f xs ys
+          </code>
+          <div class="tip" id="34">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; &#39;?11274) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; Vect&lt;^Nat,&#39;?11274&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b, '?11274, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L33-33" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '35', 35)" onmouseover="showTip(event, '35', 35)">
+            map3 f xs ys zs
+          </code>
+          <div class="tip" id="35">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;b -&gt; &#39;c -&gt; &#39;?11280) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; zs:Vect&lt;^Nat,&#39;c&gt; -&gt; Vect&lt;^Nat,&#39;?11280&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b, 'c, '?11280, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L38-38" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail unless <code>xs</code>, <code>ys</code>, and <code>zs</code> have the same length.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '36', 36)" onmouseover="showTip(event, '36', 36)">
+            mapi f xs
+          </code>
+          <div class="tip" id="36">
+            <strong>Signature:</strong> f:(int -&gt; &#39;a -&gt; &#39;?11284) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;^Nat,&#39;?11284&gt;<br />
+                          <strong>Type parameters:</strong> 'a, '?11284, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L42-42" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '37', 37)" onmouseover="showTip(event, '37', 37)">
+            mapi2 f xs ys
+          </code>
+          <div class="tip" id="37">
+            <strong>Signature:</strong> f:(int -&gt; &#39;a -&gt; &#39;b -&gt; &#39;?11289) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; Vect&lt;^Nat,&#39;?11289&gt;<br />
+                          <strong>Type parameters:</strong> 'a, 'b, '?11289, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L46-46" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '38', 38)" onmouseover="showTip(event, '38', 38)">
+            partition f xs
+          </code>
+          <div class="tip" id="38">
+            <strong>Signature:</strong> f:(&#39;a -&gt; bool) -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;RangedNat&lt;Z,^Nat&#39;&gt;,&#39;a&gt; * Vect&lt;RangedNat&lt;Z,^Nat&#39;&gt;,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a, ^Nat, ^?11320, ^Nat'          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L79-79" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '39', 39)" onmouseover="showTip(event, '39', 39)">
+            replicate n x
+          </code>
+          <div class="tip" id="39">
+            <strong>Signature:</strong> n:^Nat -&gt; x:&#39;a -&gt; Vect&lt;^Nat,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> ^Nat, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L153-153" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '40', 40)" onmouseover="showTip(event, '40', 40)">
+            rev xs
+          </code>
+          <div class="tip" id="40">
+            <strong>Signature:</strong> xs:Vect&lt;^?11398,&#39;?11399&gt; -&gt; Vect&lt;^?11398,&#39;?11399&gt;<br />
+                          <strong>Type parameters:</strong> ^?11398, '?11399          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L155-155" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '41', 41)" onmouseover="showTip(event, '41', 41)">
+            scan f state xs
+          </code>
+          <div class="tip" id="41">
+            <strong>Signature:</strong> f:(&#39;a -&gt; &#39;a -&gt; &#39;a) -&gt; state:&#39;a -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;S&lt;^Nat&gt;,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L70-70" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '42', 42)" onmouseover="showTip(event, '42', 42)">
+            snoc a xs
+          </code>
+          <div class="tip" id="42">
+            <strong>Signature:</strong> a:&#39;a -&gt; xs:Vect&lt;^Nat,&#39;a&gt; -&gt; Vect&lt;S&lt;^Nat&gt;,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> 'a, ^Nat          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L122-122" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '43', 43)" onmouseover="showTip(event, '43', 43)">
+            sort xs
+          </code>
+          <div class="tip" id="43">
+            <strong>Signature:</strong> xs:Vect&lt;^?11401,&#39;?11402&gt; -&gt; Vect&lt;^?11401,&#39;?11402&gt;<br />
+                          <strong>Type parameters:</strong> ^?11401, '?11402          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L157-157" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '44', 44)" onmouseover="showTip(event, '44', 44)">
+            sortBy proj xs
+          </code>
+          <div class="tip" id="44">
+            <strong>Signature:</strong> proj:(&#39;?11404 -&gt; &#39;?11405) -&gt; xs:Vect&lt;^?11406,&#39;?11404&gt; -&gt; Vect&lt;^?11406,&#39;?11404&gt;<br />
+                          <strong>Type parameters:</strong> '?11404, '?11405, ^?11406          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L159-159" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '45', 45)" onmouseover="showTip(event, '45', 45)">
+            sortWith comp xs
+          </code>
+          <div class="tip" id="45">
+            <strong>Signature:</strong> comp:(&#39;?11408 -&gt; &#39;?11408 -&gt; int) -&gt; xs:Vect&lt;^?11409,&#39;?11408&gt; -&gt; Vect&lt;^?11409,&#39;?11408&gt;<br />
+                          <strong>Type parameters:</strong> '?11408, ^?11409          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L161-161" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '46', 46)" onmouseover="showTip(event, '46', 46)">
+            tail xs
+          </code>
+          <div class="tip" id="46">
+            <strong>Signature:</strong> xs:Vect&lt;S&lt;^?11377&gt;,&#39;?11378&gt; -&gt; Vect&lt;^?11377,&#39;?11378&gt;<br />
+                          <strong>Type parameters:</strong> ^?11377, '?11378          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L134-134" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if <code>xs</code> is <code>VNil</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '47', 47)" onmouseover="showTip(event, '47', 47)">
+            take n xs
+          </code>
+          <div class="tip" id="47">
+            <strong>Signature:</strong> n:^NatN -&gt; xs:Vect&lt;^NatXS,&#39;a&gt; -&gt; Vect&lt;^NatN,&#39;a&gt;<br />
+                          <strong>Type parameters:</strong> ^NatN, ^?11381, ^?11382, ^NatXS, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L139-139" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if <code>n</code> is out of range of <code>xs</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '48', 48)" onmouseover="showTip(event, '48', 48)">
+            toList xs
+          </code>
+          <div class="tip" id="48">
+            <strong>Signature:</strong> xs:Vect&lt;^?11429,&#39;?11430&gt; -&gt; &#39;?11430 list<br />
+                          <strong>Type parameters:</strong> ^?11429, '?11430          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L187-187" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '49', 49)" onmouseover="showTip(event, '49', 49)">
+            tryFindIndex f xs
+          </code>
+          <div class="tip" id="49">
+            <strong>Signature:</strong> f:(&#39;?11334 -&gt; bool) -&gt; xs:Vect&lt;^Nat,&#39;?11334&gt; -&gt; RangedNat&lt;Z,^Nat&#39;&gt; option<br />
+                          <strong>Type parameters:</strong> '?11334, ^Nat, ^?11336, ^Nat'          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L99-99" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '50', 50)" onmouseover="showTip(event, '50', 50)">
+            tryOfList n xs
+          </code>
+          <div class="tip" id="50">
+            <strong>Signature:</strong> n:^Nat -&gt; xs:&#39;a list -&gt; Vect&lt;^Nat,&#39;a&gt; option<br />
+                          <strong>Type parameters:</strong> ^Nat, 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L190-190" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Try to create <a href="fsharp-dependent-vectors-vect.html" title="Vect"><code>Vect</code></a> from <a href="providerimplementation-providedtypes-binarywriter-list.html" title="List"><code>List</code></a> with the given length <code>n</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '51', 51)" onmouseover="showTip(event, '51', 51)">
+            unzip xys
+          </code>
+          <div class="tip" id="51">
+            <strong>Signature:</strong> xys:Vect&lt;^?11420,(&#39;?11421 * &#39;?11422)&gt; -&gt; Vect&lt;^?11420,&#39;?11421&gt; * Vect&lt;^?11420,&#39;?11422&gt;<br />
+                          <strong>Type parameters:</strong> ^?11420, '?11421, '?11422          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L175-175" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '52', 52)" onmouseover="showTip(event, '52', 52)">
+            unzip3 xyzs
+          </code>
+          <div class="tip" id="52">
+            <strong>Signature:</strong> xyzs:Vect&lt;^?11424,(&#39;?11425 * &#39;?11426 * &#39;?11427)&gt; -&gt; Vect&lt;^?11424,&#39;?11425&gt; * Vect&lt;^?11424,&#39;?11426&gt; * Vect&lt;^?11424,&#39;?11427&gt;<br />
+                          <strong>Type parameters:</strong> ^?11424, '?11425, '?11426, '?11427          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L179-179" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '53', 53)" onmouseover="showTip(event, '53', 53)">
+            zip xs ys
+          </code>
+          <div class="tip" id="53">
+            <strong>Signature:</strong> xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; Vect&lt;^Nat,(&#39;a * &#39;b)&gt;<br />
+                          <strong>Type parameters:</strong> ^Nat, 'a, 'b          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L164-164" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail if the length of <code>xs</code> is not the same as that of <code>ys</code>.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '54', 54)" onmouseover="showTip(event, '54', 54)">
+            zip3 xs ys zs
+          </code>
+          <div class="tip" id="54">
+            <strong>Signature:</strong> xs:Vect&lt;^Nat,&#39;a&gt; -&gt; ys:Vect&lt;^Nat,&#39;b&gt; -&gt; zs:Vect&lt;^Nat,&#39;c&gt; -&gt; Vect&lt;^Nat,(&#39;a * &#39;b * &#39;c)&gt;<br />
+                          <strong>Type parameters:</strong> ^Nat, 'a, 'b, 'c          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L169-169" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Typer will fail unless <code>xs</code>, <code>ys</code>, and <code>zs</code> have the same length.</p>
+
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="/FSharp.Dependent/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharp.Dependent</li>
+            <li><a href="/FSharp.Dependent/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/FSharp.Dependent">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/cannorin/FSharp.Dependent">Source Code on GitHub</a></li>
+            <li><a href="/FSharp.Dependent/license.html">License</a></li>
+            <li><a href="/FSharp.Dependent/release-notes.html">Release Notes</a></li>
+            
+            <li class="nav-header">Getting started</li>
+            <li><a href="/FSharp.Dependent/tutorial.html">Sample tutorial</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="/FSharp.Dependent/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="https://github.com/cannorin/FSharp.Dependent"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>

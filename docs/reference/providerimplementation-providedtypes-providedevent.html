@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>ProvidedEvent - FSharp.Dependent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="cannorin"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/FSharp.Dependent/content/style.css" />
+    <script type="text/javascript" src="/FSharp.Dependent/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="https://github.com/cannorin/FSharp.Dependent">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/FSharp.Dependent/index.html">FSharp.Dependent</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>ProvidedEvent</h1>
+<p>
+  <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
+</p>
+<div class="xmldoc">
+</div>
+  <h3>Constructors</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Constructor</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1376', 1376)" onmouseover="showTip(event, '1376', 1376)">
+            new(...)
+          </code>
+          <div class="tip" id="1376">
+            <strong>Signature:</strong> (eventName:string * eventHandlerType:Type * adderCode:(Expr list -&gt; Expr) * removerCode:(Expr list -&gt; Expr) * isStatic:bool option) -&gt; ProvidedEvent<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1093-1093" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>.ctor</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1377', 1377)" onmouseover="showTip(event, '1377', 1377)">
+            new(...)
+          </code>
+          <div class="tip" id="1377">
+            <strong>Signature:</strong> (isTgt:bool * eventName:string * attrs:EventAttributes * eventHandlerType:Type * isStatic:bool * adder:(unit -&gt; MethodInfo) * remover:(unit -&gt; MethodInfo) * customAttributesData:(unit -&gt; CustomAttributeData [])) -&gt; ProvidedEvent<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1086-1086" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>.ctor</code></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Instance members</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Instance member</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1378', 1378)" onmouseover="showTip(event, '1378', 1378)">
+            AddDefinitionLocation(...)
+          </code>
+          <div class="tip" id="1378">
+            <strong>Signature:</strong> (line:int * column:int * filePath:string) -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1103-1103" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1379', 1379)" onmouseover="showTip(event, '1379', 1379)">
+            Adder
+          </code>
+          <div class="tip" id="1379">
+            <strong>Signature:</strong> MethodInfo<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1112-1112" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>get_Adder</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1380', 1380)" onmouseover="showTip(event, '1380', 1380)">
+            AddXmlDoc(xmlDoc)
+          </code>
+          <div class="tip" id="1380">
+            <strong>Signature:</strong> xmlDoc:string -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1102-1102" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1381', 1381)" onmouseover="showTip(event, '1381', 1381)">
+            AddXmlDocComputed(xmlDocFunction)
+          </code>
+          <div class="tip" id="1381">
+            <strong>Signature:</strong> (xmlDocFunction:(unit -&gt; string)) -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1100-1100" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1382', 1382)" onmouseover="showTip(event, '1382', 1382)">
+            AddXmlDocDelayed(xmlDocFunction)
+          </code>
+          <div class="tip" id="1382">
+            <strong>Signature:</strong> (xmlDocFunction:(unit -&gt; string)) -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1101-1101" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1383', 1383)" onmouseover="showTip(event, '1383', 1383)">
+            BelongsToTargetModel
+          </code>
+          <div class="tip" id="1383">
+            <strong>Signature:</strong> bool<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1114-1114" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>get_BelongsToTargetModel</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1384', 1384)" onmouseover="showTip(event, '1384', 1384)">
+            IsStatic
+          </code>
+          <div class="tip" id="1384">
+            <strong>Signature:</strong> bool<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1111-1111" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>get_IsStatic</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1385', 1385)" onmouseover="showTip(event, '1385', 1385)">
+            PatchDeclaringType(x)
+          </code>
+          <div class="tip" id="1385">
+            <strong>Signature:</strong> x:ProvidedTypeDefinition -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1105-1105" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1386', 1386)" onmouseover="showTip(event, '1386', 1386)">
+            Remover
+          </code>
+          <div class="tip" id="1386">
+            <strong>Signature:</strong> MethodInfo<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1113-1113" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>get_Remover</code></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="/FSharp.Dependent/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharp.Dependent</li>
+            <li><a href="/FSharp.Dependent/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/FSharp.Dependent">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/cannorin/FSharp.Dependent">Source Code on GitHub</a></li>
+            <li><a href="/FSharp.Dependent/license.html">License</a></li>
+            <li><a href="/FSharp.Dependent/release-notes.html">Release Notes</a></li>
+            
+            <li class="nav-header">Getting started</li>
+            <li><a href="/FSharp.Dependent/tutorial.html">Sample tutorial</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="/FSharp.Dependent/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="https://github.com/cannorin/FSharp.Dependent"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>

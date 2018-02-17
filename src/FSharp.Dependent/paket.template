@@ -1,0 +1,25 @@
+type project
+title
+    FSharp.Dependent
+owners
+    cannorin
+authors 
+    cannorin
+projectUrl
+    https://github.com/cannorin/FSharp.Dependent
+iconUrl
+    https://raw.githubusercontent.com/cannorin/FSharp.Dependent/master/docs/files/img/logo.png
+licenseUrl
+    https://github.com/cannorin/FSharp.Dependent/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2018 cannorin
+tags
+    f# fsharp dependenttypes fixedlist validation
+summary
+    Simulates dependent types with type-level naturals and inline functions.
+description
+    Simulates dependent types with type-level naturals and inline functions. For example: fixed-length vector types (i.e. type-safe List.nth!)
+
+
