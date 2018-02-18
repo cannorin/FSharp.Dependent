@@ -40,6 +40,8 @@
   <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
 </p>
 <div class="xmldoc">
+<p>Represents an erased provided property.</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -50,10 +52,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1438', 1438)" onmouseover="showTip(event, '1438', 1438)">
+          <code onmouseout="hideTip(event, '149', 149)" onmouseover="showTip(event, '149', 149)">
             new(...)
           </code>
-          <div class="tip" id="1438">
+          <div class="tip" id="149">
             <strong>Signature:</strong> (propertyName:string * propertyType:Type * getterCode:(Expr list -&gt; Expr) option * setterCode:(Expr list -&gt; Expr) option * isStatic:bool option * indexParameters:ProvidedParameter list option) -&gt; ProvidedProperty<br />
                       </div>
         </td>
@@ -62,28 +64,9 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The public constructor for the design-time/source model</p>
+          <p>Create a new provided property. It is not initially associated with any specific provided type definition.</p>
 
 
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1439', 1439)" onmouseover="showTip(event, '1439', 1439)">
-            new(...)
-          </code>
-          <div class="tip" id="1439">
-            <strong>Signature:</strong> (isTgt:bool * propertyName:string * attrs:PropertyAttributes * propertyType:Type * isStatic:bool * getter:(unit -&gt; MethodInfo) option * setter:(unit -&gt; MethodInfo) option * indexParameters:ProvidedParameter [] * customAttributesData:(unit -&gt; CustomAttributeData [])) -&gt; ProvidedProperty<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1031-1031" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
               <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
@@ -98,11 +81,11 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1440', 1440)" onmouseover="showTip(event, '1440', 1440)">
-            AddCustomAttribute(attribute)
+          <code onmouseout="hideTip(event, '150', 150)" onmouseover="showTip(event, '150', 150)">
+            AddCustomAttribute(arg1)
           </code>
-          <div class="tip" id="1440">
-            <strong>Signature:</strong> attribute:CustomAttributeData -&gt; unit<br />
+          <div class="tip" id="150">
+            <strong>Signature:</strong> CustomAttributeData -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -110,16 +93,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add a custom attribute to the provided property definition.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1441', 1441)" onmouseover="showTip(event, '1441', 1441)">
+          <code onmouseout="hideTip(event, '151', 151)" onmouseover="showTip(event, '151', 151)">
             AddDefinitionLocation(...)
           </code>
-          <div class="tip" id="1441">
+          <div class="tip" id="151">
             <strong>Signature:</strong> (line:int * column:int * filePath:string) -&gt; unit<br />
                       </div>
         </td>
@@ -128,16 +113,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add definition location information to the provided type definition.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1442', 1442)" onmouseover="showTip(event, '1442', 1442)">
+          <code onmouseout="hideTip(event, '152', 152)" onmouseover="showTip(event, '152', 152)">
             AddObsoleteAttribute(message, isError)
           </code>
-          <div class="tip" id="1442">
+          <div class="tip" id="152">
             <strong>Signature:</strong> (message:string * isError:bool option) -&gt; unit<br />
                       </div>
         </td>
@@ -146,16 +133,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add a 'Obsolete' attribute to this provided property</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1443', 1443)" onmouseover="showTip(event, '1443', 1443)">
+          <code onmouseout="hideTip(event, '153', 153)" onmouseover="showTip(event, '153', 153)">
             AddXmlDoc(xmlDoc)
           </code>
-          <div class="tip" id="1443">
+          <div class="tip" id="153">
             <strong>Signature:</strong> xmlDoc:string -&gt; unit<br />
                       </div>
         </td>
@@ -164,16 +153,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add XML documentation information to this provided constructor</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1444', 1444)" onmouseover="showTip(event, '1444', 1444)">
+          <code onmouseout="hideTip(event, '154', 154)" onmouseover="showTip(event, '154', 154)">
             AddXmlDocComputed(xmlDocFunction)
           </code>
-          <div class="tip" id="1444">
+          <div class="tip" id="154">
             <strong>Signature:</strong> (xmlDocFunction:(unit -&gt; string)) -&gt; unit<br />
                       </div>
         </td>
@@ -182,16 +173,19 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add XML documentation information to this provided constructor, where the computation of the documentation is delayed until necessary
+The documentation is re-computed  every time it is required.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1445', 1445)" onmouseover="showTip(event, '1445', 1445)">
+          <code onmouseout="hideTip(event, '155', 155)" onmouseover="showTip(event, '155', 155)">
             AddXmlDocDelayed(xmlDocFunction)
           </code>
-          <div class="tip" id="1445">
+          <div class="tip" id="155">
             <strong>Signature:</strong> (xmlDocFunction:(unit -&gt; string)) -&gt; unit<br />
                       </div>
         </td>
@@ -200,73 +194,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add XML documentation information to this provided constructor, where the computation of the documentation is delayed until necessary</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1446', 1446)" onmouseover="showTip(event, '1446', 1446)">
-            BelongsToTargetModel
-          </code>
-          <div class="tip" id="1446">
-            <strong>Signature:</strong> bool<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1063-1063" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_BelongsToTargetModel</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1447', 1447)" onmouseover="showTip(event, '1447', 1447)">
-            Getter
-          </code>
-          <div class="tip" id="1447">
-            <strong>Signature:</strong> (unit -&gt; MethodInfo) option<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1064-1064" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_Getter</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1448', 1448)" onmouseover="showTip(event, '1448', 1448)">
-            IndexParameters
-          </code>
-          <div class="tip" id="1448">
-            <strong>Signature:</strong> ProvidedParameter []<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1062-1062" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_IndexParameters</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1449', 1449)" onmouseover="showTip(event, '1449', 1449)">
+          <code onmouseout="hideTip(event, '156', 156)" onmouseover="showTip(event, '156', 156)">
             IsStatic
           </code>
-          <div class="tip" id="1449">
+          <div class="tip" id="156">
             <strong>Signature:</strong> bool<br />
                       </div>
         </td>
@@ -275,45 +214,10 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Get or set a flag indicating if the property is static.</p>
+
+
               <p>CompiledName: <code>get_IsStatic</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1450', 1450)" onmouseover="showTip(event, '1450', 1450)">
-            PatchDeclaringType(x)
-          </code>
-          <div class="tip" id="1450">
-            <strong>Signature:</strong> x:ProvidedTypeDefinition -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1055-1055" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1451', 1451)" onmouseover="showTip(event, '1451', 1451)">
-            Setter
-          </code>
-          <div class="tip" id="1451">
-            <strong>Signature:</strong> (unit -&gt; MethodInfo) option<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L1065-1065" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_Setter</code></p>
         </td>
       </tr>
     </tbody>

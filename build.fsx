@@ -11,6 +11,7 @@ open Fake.UserInputHelper
 
 open System
 open System.IO
+open System.Text.RegularExpressions
 open System.Diagnostics
 
 // --------------------------------------------------------------------------------------
@@ -65,9 +66,6 @@ let gitRaw = environVarOrDefault "gitRaw" "https://raw.githubusercontent.com/can
 // END TODO: The rest of the file includes standard build steps
 // --------------------------------------------------------------------------------------
 
-// Read additional information from the release notes document
-let release = LoadReleaseNotes "RELEASE_NOTES.md"
-
 // Helper active pattern for project types
 let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName:string) =
     match projFileName with
@@ -76,6 +74,34 @@ let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName:string) =
     | f when f.EndsWith("vbproj") -> Vbproj
     | f when f.EndsWith("shproj") -> Shproj
     | _                           -> failwith (sprintf "Project file %s not supported. Unknown project type." projFileName)
+
+let (|Regex|_|) pattern input =
+  let m = Regex.Match(input, pattern)
+  if m.Success then Some(List.tail [ for g in m.Groups -> g.Value ])
+  else None
+
+let loadReleaseNoteWithAutoIncrement releaseNote =
+  let y2k = DateTimeOffset.Parse "1/1/2010+0000"
+  let today = DateTimeOffset.UtcNow
+  let dayssincey2k = (today - y2k).Days
+  let secs = today.TimeOfDay.TotalSeconds |> int |> (/) <| 2
+  let lines = File.ReadAllLines releaseNote
+  let topLine =
+    match (lines |> Array.tryHead) with
+      | Some (Regex @"^(\*|\#\# New in) ([0-9]+)\.([0-9]+)\.([0-9]+)(?:\.\*) (.+)$" [head; maj; min; rev; tail]) ->
+        sprintf "%s %s.%s.%s.%i %s" head maj min rev (today.DayOfYear * 10000 + secs) tail
+      | Some (Regex @"^(\*|\#\# New in) ([0-9]+)\.([0-9]+)(?:\.\*) (.+)$" [head; maj; min; tail]) ->
+        sprintf "%s %s.%s.%i.%i %s" head maj min dayssincey2k secs tail
+      | Some x -> x
+      | None ->
+        sprintf "0.%i.%i.%i" (today.Year - 2000) today.DayOfYear secs
+  trace (sprintf "Using top line '%s'.." topLine)
+  lines |> Array.mapi (fun i x -> if i = 0 then topLine else x)
+        |> parseReleaseNotes
+
+// Read additional information from the release notes document
+let release = loadReleaseNoteWithAutoIncrement "RELEASE_NOTES.md"
+
 
 // Generate assembly info files with the right version & up-to-date information
 Target "AssemblyInfo" (fun _ ->

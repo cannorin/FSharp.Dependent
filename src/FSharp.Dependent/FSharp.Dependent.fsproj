@@ -39,6 +39,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="TypeNats.fs" />
     <Compile Include="Vector.fs" />
+    <Compile Include="../../paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fsi" />
     <Compile Include="../../paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs" />
     <Compile Include="NatProvider.fs" />
   </ItemGroup>

@@ -40,45 +40,9 @@
   <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
 </p>
 <div class="xmldoc">
-<p>A cross-targeting type provider must ultimately provide quotations and reflection objects w.r.t.
-the type binding context for the target assembly reference set.</p>
-<p>To make building a cross-targeting type provider palatable, the type provider is written w.r.t. to
-homogeneous quotations and reflection objects referring to a copy of the target runtime constructs held
-in the design-time assembly itself.   These are then systematically remapped (replaced/translated) to the
-corresponding reflection objects in the target assembly reference set.</p>
-<p>The ProvidedTypesContext acts as a way of creating provided objects where the replacement is automatically and
-systematically applied.
-Represents the type binding context for the type provider based on the set of assemblies
-referenced by the compilation.</p>
+<p>Represents the context for which code is to be generated. Normally you should not need to use this directly.</p>
 
 </div>
-  <h3>Constructors</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1525', 1525)" onmouseover="showTip(event, '1525', 1525)">
-            new(...)
-          </code>
-          <div class="tip" id="1525">
-            <strong>Signature:</strong> (referencedAssemblyPaths:string list * assemblyReplacementMap:(string * string) list * sourceAssemblies:Assembly list) -&gt; ProvidedTypesContext<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8393-8393" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
   <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
@@ -88,11 +52,11 @@ referenced by the compilation.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1526', 1526)" onmouseover="showTip(event, '1526', 1526)">
-            AddSourceAssembly(asm)
+          <code onmouseout="hideTip(event, '195', 195)" onmouseover="showTip(event, '195', 195)">
+            AddSourceAssembly(arg1)
           </code>
-          <div class="tip" id="1526">
-            <strong>Signature:</strong> asm:Assembly -&gt; unit<br />
+          <div class="tip" id="195">
+            <strong>Signature:</strong> Assembly -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -100,35 +64,19 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add an assembly to the set of design-time assemblies available to use as a basis for authoring provided types</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1527', 1527)" onmouseover="showTip(event, '1527', 1527)">
-            AddTargetAssembly(asmName, asm)
+          <code onmouseout="hideTip(event, '196', 196)" onmouseover="showTip(event, '196', 196)">
+            ConvertSourceExprToTarget(arg1)
           </code>
-          <div class="tip" id="1527">
-            <strong>Signature:</strong> (asmName:AssemblyName * asm:Assembly) -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8965-8965" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1528', 1528)" onmouseover="showTip(event, '1528', 1528)">
-            ConvertSourceExprToTarget(e)
-          </code>
-          <div class="tip" id="1528">
-            <strong>Signature:</strong> e:Expr -&gt; Expr<br />
+          <div class="tip" id="196">
+            <strong>Signature:</strong> Expr -&gt; Expr<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -136,53 +84,20 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns a quotation rebuilt with resepct to the types from the target referenced assemblies.  Normally
+this method should not be used directly when authoring a type provider.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1529', 1529)" onmouseover="showTip(event, '1529', 1529)">
-            ConvertSourceNamespaceToTarget(ns)
+          <code onmouseout="hideTip(event, '197', 197)" onmouseover="showTip(event, '197', 197)">
+            ConvertSourceTypeToTarget(arg1)
           </code>
-          <div class="tip" id="1529">
-            <strong>Signature:</strong> ns:IProvidedNamespace -&gt; IProvidedNamespace<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8933-8933" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1530', 1530)" onmouseover="showTip(event, '1530', 1530)">
-            ConvertSourceProvidedTypeDefinitionToTarget(...)
-          </code>
-          <div class="tip" id="1530">
-            <strong>Signature:</strong> ptd:ProvidedTypeDefinition -&gt; ProvidedTypeDefinition<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8934-8934" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1531', 1531)" onmouseover="showTip(event, '1531', 1531)">
-            ConvertSourceTypeToTarget(t)
-          </code>
-          <div class="tip" id="1531">
-            <strong>Signature:</strong> t:Type -&gt; Type<br />
+          <div class="tip" id="197">
+            <strong>Signature:</strong> Type -&gt; Type<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -190,7 +105,8 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Gets the equivalent target type</p>
+          <p>Returns a type from the referenced assemblies that corresponds to the given design-time type.  Normally
+this method should not be used directly when authoring a type provider.</p>
 
 
         </td>
@@ -198,11 +114,11 @@ referenced by the compilation.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1532', 1532)" onmouseover="showTip(event, '1532', 1532)">
-            ConvertTargetTypeToSource(t)
+          <code onmouseout="hideTip(event, '198', 198)" onmouseover="showTip(event, '198', 198)">
+            ConvertTargetTypeToSource(arg1)
           </code>
-          <div class="tip" id="1532">
-            <strong>Signature:</strong> t:Type -&gt; Type<br />
+          <div class="tip" id="198">
+            <strong>Signature:</strong> Type -&gt; Type<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -210,16 +126,19 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the design-time type that corresponds to the given type from the target referenced assemblies.  Normally
+this method should not be used directly when authoring a type provider.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1533', 1533)" onmouseover="showTip(event, '1533', 1533)">
+          <code onmouseout="hideTip(event, '199', 199)" onmouseover="showTip(event, '199', 199)">
             FSharpCoreAssemblyVersion
           </code>
-          <div class="tip" id="1533">
+          <div class="tip" id="199">
             <strong>Signature:</strong> Version<br />
                       </div>
         </td>
@@ -228,17 +147,19 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Try to get the version of FSharp.Core referenced. May raise an exception if FSharp.Core has not been correctly resolved</p>
+
+
               <p>CompiledName: <code>get_FSharpCoreAssemblyVersion</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1534', 1534)" onmouseover="showTip(event, '1534', 1534)">
+          <code onmouseout="hideTip(event, '200', 200)" onmouseover="showTip(event, '200', 200)">
             GetSourceAssemblies()
           </code>
-          <div class="tip" id="1534">
+          <div class="tip" id="200">
             <strong>Signature:</strong> unit -&gt; Assembly []<br />
                       </div>
         </td>
@@ -247,16 +168,18 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Get the set of design-time assemblies available to use as a basis for authoring provided types.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1535', 1535)" onmouseover="showTip(event, '1535', 1535)">
+          <code onmouseout="hideTip(event, '201', 201)" onmouseover="showTip(event, '201', 201)">
             GetTargetAssemblies()
           </code>
-          <div class="tip" id="1535">
+          <div class="tip" id="201">
             <strong>Signature:</strong> unit -&gt; Assembly []<br />
                       </div>
         </td>
@@ -265,35 +188,18 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Get the resolved referenced assemblies determined by the type provider configuration</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1536', 1536)" onmouseover="showTip(event, '1536', 1536)">
-            ILGlobals
-          </code>
-          <div class="tip" id="1536">
-            <strong>Signature:</strong> ILGlobals<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8941-8941" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_ILGlobals</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1537', 1537)" onmouseover="showTip(event, '1537', 1537)">
+          <code onmouseout="hideTip(event, '202', 202)" onmouseover="showTip(event, '202', 202)">
             ReadRelatedAssembly(bytes)
           </code>
-          <div class="tip" id="1537">
+          <div class="tip" id="202">
             <strong>Signature:</strong> (bytes:byte []) -&gt; Assembly<br />
                       </div>
         </td>
@@ -302,16 +208,18 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Read the assembly related to this context</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1538', 1538)" onmouseover="showTip(event, '1538', 1538)">
+          <code onmouseout="hideTip(event, '203', 203)" onmouseover="showTip(event, '203', 203)">
             ReadRelatedAssembly(fileName)
           </code>
-          <div class="tip" id="1538">
+          <div class="tip" id="203">
             <strong>Signature:</strong> fileName:string -&gt; Assembly<br />
                       </div>
         </td>
@@ -320,16 +228,18 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Read the assembly related to this context</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1539', 1539)" onmouseover="showTip(event, '1539', 1539)">
+          <code onmouseout="hideTip(event, '204', 204)" onmouseover="showTip(event, '204', 204)">
             ReferencedAssemblyPaths
           </code>
-          <div class="tip" id="1539">
+          <div class="tip" id="204">
             <strong>Signature:</strong> string list<br />
                       </div>
         </td>
@@ -338,17 +248,19 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Get the list of referenced assemblies determined by the type provider configuration</p>
+
+
               <p>CompiledName: <code>get_ReferencedAssemblyPaths</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1540', 1540)" onmouseover="showTip(event, '1540', 1540)">
+          <code onmouseout="hideTip(event, '205', 205)" onmouseover="showTip(event, '205', 205)">
             TryBindAssemblyNameToTarget(aref)
           </code>
-          <div class="tip" id="1540">
+          <div class="tip" id="205">
             <strong>Signature:</strong> aref:AssemblyName -&gt; Choice&lt;Assembly,exn&gt;<br />
                       </div>
         </td>
@@ -357,34 +269,18 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Try to find the given target assembly in the context</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1541', 1541)" onmouseover="showTip(event, '1541', 1541)">
-            TryBindILAssemblyRefToTgt(aref)
-          </code>
-          <div class="tip" id="1541">
-            <strong>Signature:</strong> aref:ILAssemblyRef -&gt; Choice&lt;Assembly,exn&gt;<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8935-8935" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1542', 1542)" onmouseover="showTip(event, '1542', 1542)">
+          <code onmouseout="hideTip(event, '206', 206)" onmouseover="showTip(event, '206', 206)">
             TryBindSimpleAssemblyNameToTarget(...)
           </code>
-          <div class="tip" id="1542">
+          <div class="tip" id="206">
             <strong>Signature:</strong> assemblyName:string -&gt; Choice&lt;Assembly,exn&gt;<br />
                       </div>
         </td>
@@ -393,33 +289,9 @@ referenced by the compilation.</p>
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Static members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Static member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
+          <p>Try to find the given target assembly in the context</p>
 
-          <code onmouseout="hideTip(event, '1543', 1543)" onmouseover="showTip(event, '1543', 1543)">
-            Create(...)
-          </code>
-          <div class="tip" id="1543">
-            <strong>Signature:</strong> (config:TypeProviderConfig * assemblyReplacementMap:(string * string) list * sourceAssemblies:Assembly list) -&gt; ProvidedTypesContext<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L8970-8970" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
+
         </td>
       </tr>
     </tbody>

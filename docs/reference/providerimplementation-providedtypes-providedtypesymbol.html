@@ -45,33 +45,6 @@ See the type provider spec for the methods that must be implemented.
 Note that the type provider specification does not require us to implement pointer-equality for provided types.</p>
 
 </div>
-  <h3>Constructors</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1514', 1514)" onmouseover="showTip(event, '1514', 1514)">
-            new(kind, typeArgs)
-          </code>
-          <div class="tip" id="1514">
-            <strong>Signature:</strong> (kind:ProvidedTypeSymbolKind * typeArgs:Type list) -&gt; ProvidedTypeSymbol<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L499-499" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
   <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
@@ -81,29 +54,10 @@ Note that the type provider specification does not require us to implement point
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1515', 1515)" onmouseover="showTip(event, '1515', 1515)">
-            Args
-          </code>
-          <div class="tip" id="1515">
-            <strong>Signature:</strong> Type []<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L603-603" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_Args</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1516', 1516)" onmouseover="showTip(event, '1516', 1516)">
+          <code onmouseout="hideTip(event, '193', 193)" onmouseover="showTip(event, '193', 193)">
             IsFSharpTypeAbbreviation
           </code>
-          <div class="tip" id="1516">
+          <div class="tip" id="193">
             <strong>Signature:</strong> bool<br />
                       </div>
         </td>
@@ -112,17 +66,19 @@ Note that the type provider specification does not require us to implement point
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>For example, kg</p>
+
+
               <p>CompiledName: <code>get_IsFSharpTypeAbbreviation</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1517', 1517)" onmouseover="showTip(event, '1517', 1517)">
+          <code onmouseout="hideTip(event, '194', 194)" onmouseover="showTip(event, '194', 194)">
             IsFSharpUnitAnnotated
           </code>
-          <div class="tip" id="1517">
+          <div class="tip" id="194">
             <strong>Signature:</strong> bool<br />
                       </div>
         </td>
@@ -131,27 +87,10 @@ Note that the type provider specification does not require us to implement point
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
-              <p>CompiledName: <code>get_IsFSharpUnitAnnotated</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
+          <p>For example, int<kg> or int<kilogram></p>
 
-          <code onmouseout="hideTip(event, '1518', 1518)" onmouseover="showTip(event, '1518', 1518)">
-            Kind
-          </code>
-          <div class="tip" id="1518">
-            <strong>Signature:</strong> ProvidedTypeSymbolKind<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L601-601" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_Kind</code></p>
+
+              <p>CompiledName: <code>get_IsFSharpUnitAnnotated</code></p>
         </td>
       </tr>
     </tbody>

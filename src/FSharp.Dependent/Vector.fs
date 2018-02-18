@@ -106,7 +106,7 @@ module Vect =
     { length = len'; vect = xs' }
 
   let inline chunkBySize (n: ^NatN) (xs: Vect< ^NatXS, 'a >) : Vect<RangedNat< Z, ^NatXS' >, Vect<RangedNat< Z, ^NatN' >, 'a>> =
-    Constraint.LTETerm(S Zero, lowerLimitOf n);
+    Constraint.GTETerm(lowerLimitOf n, S Zero);
     let xss = xs.vect |> List.chunkBySize (natVal n)
     let chunks = List.length xss |> RuntimeNat.LTE <| upperLimitOf xs.length
     { length = chunks; vect = xss |> List.map (fun xs -> { length = List.length xs |> RuntimeNat.LTE <| upperLimitOf n; vect = xs }) }

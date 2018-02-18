@@ -139,21 +139,6 @@ let inline succ x = x + S Zero
 
 module RuntimeNat =
   /// Creates upper-bounded type-level natural whose term-level value is unknown at compile-time.
-  ///
-  /// ## Description
-  ///
-  /// This construct is useful when you want to make sure that the return value is unknown at compile-time, but always less than a certain value or equal.
-  /// Use this to constrain return types. If you want to make arguments less than a certain value, use `Constraint.LTE` instead.
-  ///
-  /// ## Example
-  ///
-  ///   let inline randomLessThan (n: S< ^Nat >) =
-  ///     let rand = System.Random().Next(0, natVal n - 1)
-  ///     rand |> RuntimeNat.LTE <| pred n
-  ///
-  /// ## Warning
-  ///
-  /// This construct is UNSAFE and will throw an InvalidArgumentException if the given value is larger than the specified upper limit.
   let inline LTE (value: int) (upperLimit: ^UpperLimit) : RangedNat< Z, ^UpperLimit' > =
     if value <= natVal upperLimit then
       RangedNat (Zero, value, lowerLimitOf upperLimit)
@@ -161,21 +146,6 @@ module RuntimeNat =
       invalidArg "value" "the value is greater than the upper limit"
 
   /// Creates lower-bounded type-level natural whose term-level value is unknown at compile-time.
-  ///
-  /// ## Description
-  ///
-  /// This construct is useful when you want to make sure that the return value is unknown at compile-time, but always greater than a certain value or equal.
-  /// Use this to constrain return types. If you want to make arguments greater than a certain value, use `Constraint.GTE` instead.
-  ///
-  /// ## Example
-  ///
-  ///   let inline randomMoreThan (n: ^Nat) =
-  ///     let rand = System.Random().Next(natVal n + 1, System.Int32.MaxValue)
-  ///     rand |> RuntimeNat.GTE <| S n
-  ///
-  /// ## Warning
-  ///
-  /// This construct is UNSAFE and will throw an InvalidArgumentException if the given value is larger than the specified upper limit.
   let inline GTE (value: int) (lowerLimit: ^LowerLimit) : RangedNat< ^LowerLimit', INF > =
     if value >= natVal lowerLimit then
       RangedNat (upperLimitOf lowerLimit, value, Inf)
@@ -184,76 +154,14 @@ module RuntimeNat =
 
 
 module Constraint =
-  /// Helper type function to constrain a certain type-level natural `^NatL` to be less than the specified nat `^NatR` or equal to.
-  ///
-  /// ## Description
-  ///
-  /// Although being a bit verbose, using this type is far more performance-wise than just doing ```m - n |> ignore;```
-  /// Use this to constrain argument types. If you want to make the return value less than a certain value or equal to, use `RuntimeNat.LTE` instead.
-  ///
-  /// ## Example
-  ///
-  ///   let inline pleaseGiveMeLessThan (limit: S< ^NatLimit >) (x: ^NatX) =
-  ///     Constraint.LTE< ^NatX, ^NatLimit, _ >;
-  ///     printfn "I'm happy with it."
-  ///     
-  ///   pleaseGiveMeLessThan (S (S Zero)) Zero
-  ///
-  /// ## Warning
-  ///
-  ///   Keep the type parameters generic!
-  ///   Even if you eta-expand it, the F# typer forcefully solves the constraint.
-  ///   Writing member constraints by hands, unfortunately, does not make any improvements here. 
-  ///
-  ///     > let inline pgmlt3 x = pleaseGiveMeLessThan (S (S (S Zero))) x ;;
-  ///     val inline pgmlt3 : x:S<S<Z>> -> unit
-  let inline LTE< ^NatL, ^NatR, ^__ when (^NatL or ^NatR): (static member (-): ^NatR -> ^NatL -> ^__)> = ()
+  /// Helper type function to constrain a certain type-level natural NatL to be less than the specified nat NatR or equal to.
+  let inline LTE< ^NatL, ^NatR, ^__ when ^NatL: (static member (-): ^NatR -> ^NatL -> ^__)> = ()
  
   /// Short-hand alternative to `Constraint.LTE` that takes term arguments instead of type arguments.
-  /// See `Constraint.LTE` for details.
-  ///
-  /// ## Example
-  ///
-  /// The formar example can be re-written as:
-  ///
-  ///   let inline pleaseGiveMeLessThan limit x =
-  ///     Constraint.LTETerm(x, pred limit);
-  ///     printfn "I'm happy with it."
   let inline LTETerm (_: ^NatL, _: ^NatR) = LTE< ^NatL, ^NatR, _ >
 
-  /// Helper type function to constrain a certain type-level natural `^NatL` to be greater than the specified nat `^NatR` or equal to.
-  ///
-  /// ## Description
-  ///
-  /// Although being a bit verbose, using this type is far more performance-wise than just doing ```m - n |> ignore;```
-  /// Use this to constrain argument types. If you want to make the return value greater than a certain value or equal to, use `RuntimeNat.GTE` instead.
-  ///
-  /// ## Example
-  ///
-  ///   let inline pleaseGiveMeMoreThan (limit: ^NatLimit) (x: ^NatX) =
-  ///     Constraint.GTE< ^NatX, S< ^NatLimit >, _ >;
-  ///     printfn "I'm happy with it."
-  ///     
-  ///   pleaseGiveMeMoreThan (S Zero) (S (S Zero))
-  ///
-  /// ## Warning
-  ///
-  ///   Keep the type parameters generic!
-  ///   Even if you eta-expand it, the F# typer forcefully solves the constraint.
-  ///   Writing member constraints by hands, unfortunately, does not make any improvements here. 
-  ///
-  ///     > let inline pgmmt1 x = pleaseGiveMeMoreThan (S Zero) x ;;
-  ///     val inline pgmmt1 : x:S<S<Z>> -> unit
-  let inline GTE< ^NatL, ^NatR, ^__ when (^NatL or ^NatR): (static member (-): ^NatL -> ^NatR -> ^__)> = ()
+  /// Helper type function to constrain a certain type-level natural NatL to be greater than the specified nat NatR or equal to.
+  let inline GTE< ^NatL, ^NatR, ^__ when ^NatL: (static member (-): ^NatL -> ^NatR -> ^__)> = ()
 
   /// Short-hand alternative to `Constraint.GTE` that takes term arguments instead of type arguments.
-  /// See `Constraint.GTE` for details.
-  ///
-  /// ## Example
-  ///
-  /// The formar example can be re-written as:
-  ///
-  ///   let inline pleaseGiveMeMoreThan limit x =
-  ///     Constraint.GTETerm(x, succ limit);
-  ///     printfn "I'm happy with it."
   let inline GTETerm (_: ^NatL, _: ^NatR) = GTE< ^NatL, ^NatR, _ >

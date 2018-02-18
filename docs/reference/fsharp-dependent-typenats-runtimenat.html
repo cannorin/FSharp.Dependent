@@ -62,20 +62,11 @@
                           <strong>Type parameters:</strong> ^LowerLimit, ^LowerLimit'          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L179-179" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L149-149" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates lower-bounded type-level natural whose term-level value is unknown at compile-time.</p>
-<h2>Description</h2>
-<p>This construct is useful when you want to make sure that the return value is unknown at compile-time, but always greater than a certain value or equal.
-Use this to constrain return types. If you want to make arguments greater than a certain value, use <code>Constraint.GTE</code> instead.</p>
-<h2>Example</h2>
-<p>let inline randomMoreThan (n: ^Nat) =
-let rand = System.Random().Next(natVal n + 1, System.Int32.MaxValue)
-rand |&gt; RuntimeNat.GTE &lt;| S n</p>
-<h2>Warning</h2>
-<p>This construct is UNSAFE and will throw an InvalidArgumentException if the given value is larger than the specified upper limit.</p>
 
 
         </td>
@@ -91,20 +82,11 @@ rand |&gt; RuntimeNat.GTE &lt;| S n</p>
                           <strong>Type parameters:</strong> ^UpperLimit, ^UpperLimit'          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L157-157" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L142-142" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates upper-bounded type-level natural whose term-level value is unknown at compile-time.</p>
-<h2>Description</h2>
-<p>This construct is useful when you want to make sure that the return value is unknown at compile-time, but always less than a certain value or equal.
-Use this to constrain return types. If you want to make arguments less than a certain value, use <code>Constraint.LTE</code> instead.</p>
-<h2>Example</h2>
-<p>let inline randomLessThan (n: S< ^Nat >) =
-let rand = System.Random().Next(0, natVal n - 1)
-rand |&gt; RuntimeNat.LTE &lt;| pred n</p>
-<h2>Warning</h2>
-<p>This construct is UNSAFE and will throw an InvalidArgumentException if the given value is larger than the specified upper limit.</p>
 
 
         </td>

@@ -40,6 +40,8 @@
   <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
 </p>
 <div class="xmldoc">
+<p>Represents an erased provided parameter</p>
+
 </div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -50,29 +52,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1427', 1427)" onmouseover="showTip(event, '1427', 1427)">
+          <code onmouseout="hideTip(event, '142', 142)" onmouseover="showTip(event, '142', 142)">
             new(...)
           </code>
-          <div class="tip" id="1427">
-            <strong>Signature:</strong> (_isTgt:bool * parameterName:string * parameterType:Type * isOut:bool option * optionalValue:obj option) -&gt; ProvidedParameter<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L869-869" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1428', 1428)" onmouseover="showTip(event, '1428', 1428)">
-            new(...)
-          </code>
-          <div class="tip" id="1428">
+          <div class="tip" id="142">
             <strong>Signature:</strong> (parameterName:string * parameterType:Type * isOut:bool option * optionalValue:obj option) -&gt; ProvidedParameter<br />
                       </div>
         </td>
@@ -81,26 +64,9 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
+          <p>Create a new provided parameter.</p>
 
-          <code onmouseout="hideTip(event, '1429', 1429)" onmouseover="showTip(event, '1429', 1429)">
-            new(...)
-          </code>
-          <div class="tip" id="1429">
-            <strong>Signature:</strong> (isTgt:bool * parameterName:string * attrs:ParameterAttributes * parameterType:Type * optionalValue:obj option * customAttributesData:(unit -&gt; CustomAttributeData [])) -&gt; ProvidedParameter<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L860-860" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
+
               <p>CompiledName: <code>.ctor</code></p>
         </td>
       </tr>
@@ -115,11 +81,11 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1430', 1430)" onmouseover="showTip(event, '1430', 1430)">
-            AddCustomAttribute(attribute)
+          <code onmouseout="hideTip(event, '143', 143)" onmouseover="showTip(event, '143', 143)">
+            AddCustomAttribute(arg1)
           </code>
-          <div class="tip" id="1430">
-            <strong>Signature:</strong> attribute:CustomAttributeData -&gt; unit<br />
+          <div class="tip" id="143">
+            <strong>Signature:</strong> CustomAttributeData -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -127,35 +93,18 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Add a custom attribute to the provided parameter.</p>
+
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1431', 1431)" onmouseover="showTip(event, '1431', 1431)">
-            BelongsToTargetModel
-          </code>
-          <div class="tip" id="1431">
-            <strong>Signature:</strong> bool<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L879-879" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_BelongsToTargetModel</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '1432', 1432)" onmouseover="showTip(event, '1432', 1432)">
+          <code onmouseout="hideTip(event, '144', 144)" onmouseover="showTip(event, '144', 144)">
             HasDefaultParameterValue
           </code>
-          <div class="tip" id="1432">
+          <div class="tip" id="144">
             <strong>Signature:</strong> bool<br />
                       </div>
         </td>
@@ -164,17 +113,19 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Indicates if the parameter has a default value</p>
+
+
               <p>CompiledName: <code>get_HasDefaultParameterValue</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1433', 1433)" onmouseover="showTip(event, '1433', 1433)">
+          <code onmouseout="hideTip(event, '145', 145)" onmouseover="showTip(event, '145', 145)">
             IsParamArray()
           </code>
-          <div class="tip" id="1433">
+          <div class="tip" id="145">
             <strong>Signature:</strong> unit -&gt; bool<br />
                       </div>
         </td>
@@ -183,17 +134,19 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Indicates if the parameter is marked as ParamArray</p>
+
+
               <p>CompiledName: <code>set_IsParamArray</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1434', 1434)" onmouseover="showTip(event, '1434', 1434)">
+          <code onmouseout="hideTip(event, '146', 146)" onmouseover="showTip(event, '146', 146)">
             IsParamArray()
           </code>
-          <div class="tip" id="1434">
+          <div class="tip" id="146">
             <strong>Signature:</strong> unit -&gt; unit<br />
                       </div>
         </td>
@@ -202,17 +155,19 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Indicates if the parameter is marked as ParamArray</p>
+
+
               <p>CompiledName: <code>set_IsParamArray</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1435', 1435)" onmouseover="showTip(event, '1435', 1435)">
+          <code onmouseout="hideTip(event, '147', 147)" onmouseover="showTip(event, '147', 147)">
             IsReflectedDefinition()
           </code>
-          <div class="tip" id="1435">
+          <div class="tip" id="147">
             <strong>Signature:</strong> unit -&gt; bool<br />
                       </div>
         </td>
@@ -221,17 +176,19 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Indicates if the parameter is marked as ReflectedDefinition</p>
+
+
               <p>CompiledName: <code>set_IsReflectedDefinition</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1436', 1436)" onmouseover="showTip(event, '1436', 1436)">
+          <code onmouseout="hideTip(event, '148', 148)" onmouseover="showTip(event, '148', 148)">
             IsReflectedDefinition()
           </code>
-          <div class="tip" id="1436">
+          <div class="tip" id="148">
             <strong>Signature:</strong> unit -&gt; unit<br />
                       </div>
         </td>
@@ -240,27 +197,10 @@
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
-              <p>CompiledName: <code>set_IsReflectedDefinition</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
+          <p>Indicates if the parameter is marked as ReflectedDefinition</p>
 
-          <code onmouseout="hideTip(event, '1437', 1437)" onmouseover="showTip(event, '1437', 1437)">
-            OptionalValue
-          </code>
-          <div class="tip" id="1437">
-            <strong>Signature:</strong> obj option<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L877-877" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>get_OptionalValue</code></p>
+
+              <p>CompiledName: <code>set_IsReflectedDefinition</code></p>
         </td>
       </tr>
     </tbody>

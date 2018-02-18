@@ -86,6 +86,8 @@ The API reference is automatically generated from Markdown comments in the libra
  * [API Reference](reference/index.html) contains automatically generated documentation for all types, modules
    and functions in the library. This includes additional brief samples on using most of the
    functions.
+
+ * [Using Constraints and Ranged Naturals](using-constraints.html)
  
 Contributing and copyright
 --------------------------

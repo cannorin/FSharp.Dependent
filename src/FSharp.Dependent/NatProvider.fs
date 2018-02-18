@@ -1,4 +1,4 @@
-namespace ProviderImplementation
+namespace FSharp.Dependent.NatProvider
 open System
 open System.IO
 open System.Reflection
