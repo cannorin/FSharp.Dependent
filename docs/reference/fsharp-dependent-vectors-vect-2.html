@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Vect<'Nat, 'a> - FSharp.Dependent</title>
+    <title>Vect<'Nat, 'Item> - FSharp.Dependent</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="cannorin"/>
@@ -35,7 +35,7 @@
 
 
 
-<h1>Vect<'Nat, 'a></h1>
+<h1>Vect<'Nat, 'Item></h1>
 <p>
   <span>Namespace: FSharp.Dependent</span><br />
   <span>Parent Module: <a href="fsharp-dependent-vectors.html">Vectors</a></span>
@@ -53,11 +53,11 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '91', 91)" onmouseover="showTip(event, '91', 91)">
+          <code onmouseout="hideTip(event, '108', 108)" onmouseover="showTip(event, '108', 108)">
             length
           </code>
-          <div class="tip" id="91">
-            <strong>Signature:</strong> ^Nat<br />
+          <div class="tip" id="108">
+            <strong>Signature:</strong> &#39;Nat<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -71,11 +71,11 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '92', 92)" onmouseover="showTip(event, '92', 92)">
+          <code onmouseout="hideTip(event, '109', 109)" onmouseover="showTip(event, '109', 109)">
             vect
           </code>
-          <div class="tip" id="92">
-            <strong>Signature:</strong> &#39;a list<br />
+          <div class="tip" id="109">
+            <strong>Signature:</strong> &#39;Item list<br />
                       </div>
         </td>
         <td class="xmldoc">
@@ -84,6 +84,71 @@
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Static members</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Static member</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '110', 110)" onmouseover="showTip(event, '110', 110)">
+            ( - )(va, vb)
+          </code>
+          <div class="tip" id="110">
+            <strong>Signature:</strong> (va:Vect&lt;&#39;Nat,^a&gt; * vb:Vect&lt;&#39;Nat,^b&gt;) -&gt; Vect&lt;&#39;Nat,^c&gt;<br />
+                          <strong>Type parameters:</strong> ^c          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L13-13" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>op_Subtraction</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '111', 111)" onmouseover="showTip(event, '111', 111)">
+            ( + )(va, vb)
+          </code>
+          <div class="tip" id="111">
+            <strong>Signature:</strong> (va:Vect&lt;&#39;Nat,^a&gt; * vb:Vect&lt;&#39;Nat,^b&gt;) -&gt; Vect&lt;&#39;Nat,^c&gt;<br />
+                          <strong>Type parameters:</strong> ^c          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L10-10" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>op_Addition</code></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '112', 112)" onmouseover="showTip(event, '112', 112)">
+            Zero
+          </code>
+          <div class="tip" id="112">
+            <strong>Signature:</strong> Vect&lt;Z,obj&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Vector.fs#L9-9" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>get_Zero</code></p>
         </td>
       </tr>
     </tbody>

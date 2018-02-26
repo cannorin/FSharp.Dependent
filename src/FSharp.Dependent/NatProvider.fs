@@ -5,51 +5,40 @@ open System.Reflection
 open FSharp.Core.CompilerServices
 open FSharp.Dependent.TypeNats
 open Microsoft.FSharp.Control
+open Microsoft.FSharp.Collections
 open Microsoft.FSharp.Quotations
 open Microsoft.FSharp.Reflection
-open Microsoft.FSharp.Compiler.SourceCodeServices
 open ProviderImplementation
 open ProviderImplementation.ProvidedTypes
 
 module internal ProviderUtils =
-  let rec createSucc n terminator =
-    if n > 0 then
-      let x = createSucc (n-1) terminator
-      sprintf "(S %s)" x
-    else
-      terminator
+  let private S = typedefof<S<Z>>.GetGenericTypeDefinition()
+  let private Z = typeof<Z>
+  let mutable private memot = Map.empty |> Map.add 0 Z
+  let rec createNatType n =
+    match memot |> Map.tryFind n with
+      | Some x -> x
+      | None ->
+        if n > 0 then
+          let x = S.MakeGenericType(createNatType(n-1))
+          memot <- memot |> Map.add n x
+          x
+        else
+          Z
 
-  let createNat n = createSucc n "Zero"
-
-  let compileAndGet (code: string) =
-    let scs = FSharpChecker.Create()
-    let ownPath =
-      let temp = Path.ChangeExtension(Path.GetTempFileName(), ".dll")
-      File.Copy(Assembly.GetExecutingAssembly().Location, temp)
-      temp
-    let (src, dll) =
-      let temp = Path.GetTempFileName()
-      (Path.ChangeExtension(temp, ".fsx"), Path.ChangeExtension(temp, ".dll"))
-    let code' = "namespace A\nopen FSharp.Dependent\nmodule B =\n  let X = <@@ %%code%% @@>".Replace("%%code%%", code)
-    File.WriteAllText(src, code')
-    match (scs.CompileToDynamicAssembly([| "fsc.exe"; "-o"; dll; "-r"; ownPath; src |], Some(stdout,stderr), "user") |> Async.RunSynchronously) with
-      | [| |], 0, Some a -> 
-        let b = a.GetTypes() |> Array.find (fun x -> x.Name = "B")
-        let x = b.GetMembers().[0] :?> MethodInfo
-        let r = x.Invoke(null, [| |]) :?> Expr
-        try
-          File.Delete src
-          File.Delete dll
-          File.Delete ownPath
-        finally
-          ()
-        r
- 
-      | _ ->
-        File.Delete src
-        File.Delete dll
-        failwith "failed!"
-    
+  let mutable private memov = Map.empty |> Map.add 0 (<@@ Zero @@>)
+  let rec createNatValue n =
+    match memov |> Map.tryFind n with
+      | Some x -> x
+      | None ->
+        if n > 0 then
+          let uci = createNatType n |> FSharpType.GetUnionCases
+                                    |> Seq.head
+          let x = Expr.NewUnionCase(uci, [createNatValue(n-1)])
+          memov <- memov |> Map.add n x
+          x
+        else
+          <@@ Zero @@>    
 
 [<TypeProvider>]
 type NatProvider (cfg) as this =
@@ -67,7 +56,7 @@ type NatProvider (cfg) as this =
             if value < 0 then
               failwith "value is negative"
             ty.AddXmlDoc "Type-level naturals."
-            let n = ProviderUtils.createNat value |> ProviderUtils.compileAndGet in
+            let n = ProviderUtils.createNatValue value in
             let ty = ProvidedTypeDefinition(thisAsm, root, tyName, baseType = Some n.Type, isErased = true)
             let valuet = ProvidedProperty("value", n.Type, isStatic = true, getterCode = fun _ -> Expr.Coerce(n, n.Type))
             valuet.AddXmlDoc "Type-level natural number."

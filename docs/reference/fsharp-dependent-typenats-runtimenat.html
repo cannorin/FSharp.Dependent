@@ -54,15 +54,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '10', 10)" onmouseover="showTip(event, '10', 10)">
+          <code onmouseout="hideTip(event, '12', 12)" onmouseover="showTip(event, '12', 12)">
             GTE value lowerLimit
           </code>
-          <div class="tip" id="10">
+          <div class="tip" id="12">
             <strong>Signature:</strong> value:int -&gt; lowerLimit:^LowerLimit -&gt; RangedNat&lt;^LowerLimit&#39;,INF&gt;<br />
                           <strong>Type parameters:</strong> ^LowerLimit, ^LowerLimit'          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L149-149" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L180-180" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -74,19 +74,39 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '11', 11)" onmouseover="showTip(event, '11', 11)">
+          <code onmouseout="hideTip(event, '13', 13)" onmouseover="showTip(event, '13', 13)">
             LTE value upperLimit
           </code>
-          <div class="tip" id="11">
+          <div class="tip" id="13">
             <strong>Signature:</strong> value:int -&gt; upperLimit:^UpperLimit -&gt; RangedNat&lt;Z,^UpperLimit&#39;&gt;<br />
                           <strong>Type parameters:</strong> ^UpperLimit, ^UpperLimit'          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L142-142" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L173-173" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Creates upper-bounded type-level natural whose term-level value is unknown at compile-time.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '14', 14)" onmouseover="showTip(event, '14', 14)">
+            Ranged value lowerLimit upperLimit
+          </code>
+          <div class="tip" id="14">
+            <strong>Signature:</strong> value:int -&gt; lowerLimit:^LowerLimit -&gt; upperLimit:^UpperLimit -&gt; RangedNat&lt;^?8166,^?8164&gt;<br />
+                          <strong>Type parameters:</strong> ^LowerLimit, ^UpperLimit, ^?8164, ^?8165, ^?8166          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L187-187" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Creates ranged type-level natural whose term-level value is unknown at compile-time.</p>
 
 
         </td>

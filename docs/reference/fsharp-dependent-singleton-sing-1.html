@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>ProvidedStaticParameter - FSharp.Dependent</title>
+    <title>Sing<'A> - FSharp.Dependent</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="cannorin"/>
@@ -35,87 +35,61 @@
 
 
 
-<h1>ProvidedStaticParameter</h1>
+<h1>Sing<'A></h1>
 <p>
-  <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
+  <span>Namespace: FSharp.Dependent</span><br />
+  <span>Parent Module: <a href="fsharp-dependent-singleton.html">Singleton</a></span>
 </p>
 <div class="xmldoc">
-<p>Represents a provided static parameter.</p>
-
 </div>
-  <h3>Constructors</h3>
+  <h3>Union Cases</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
+      <tr><td>Union Case</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '177', 177)" onmouseover="showTip(event, '177', 177)">
-            new(...)
+          <code onmouseout="hideTip(event, '60', 60)" onmouseover="showTip(event, '60', 60)">
+            Sing_
           </code>
-          <div class="tip" id="177">
-            <strong>Signature:</strong> (parameterName:string * parameterType:Type * parameterDefaultValue:obj option) -&gt; ProvidedStaticParameter<br />
+          <div class="tip" id="60">
+            <strong>Signature:</strong> <br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L841-841" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Singleton.fs#L6-6" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Create a new provided static parameter, for use with DefineStaticParamaeters on a provided type definition.</p>
-
-
-              <p>CompiledName: <code>.ctor</code></p>
+          
         </td>
       </tr>
     </tbody>
   </table>
-  <h3>Instance members</h3>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
+      <tr><td>Static member</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '178', 178)" onmouseover="showTip(event, '178', 178)">
-            AddXmlDoc(xmlDoc)
+          <code onmouseout="hideTip(event, '61', 61)" onmouseover="showTip(event, '61', 61)">
+            sing()
           </code>
-          <div class="tip" id="178">
-            <strong>Signature:</strong> xmlDoc:string -&gt; unit<br />
+          <div class="tip" id="61">
+            <strong>Signature:</strong> unit -&gt; ^A<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L846-846" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/Singleton.fs#L7-7" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Add XML documentation information to this provided constructor</p>
-
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '179', 179)" onmouseover="showTip(event, '179', 179)">
-            AddXmlDocDelayed(xmlDocFunction)
-          </code>
-          <div class="tip" id="179">
-            <strong>Signature:</strong> (xmlDocFunction:(unit -&gt; string)) -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L844-844" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Add XML documentation information to this provided constructor, where the computation of the documentation is delayed until necessary</p>
-
-
+          
         </td>
       </tr>
     </tbody>

@@ -74,7 +74,7 @@ type S< ^a when ^a: (member NatVal: unit -> int)
     static member inline sing() =
       S(sing< ^a >)
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (x: S< ^a >, y: S< ^a >) = true
+    static member inline (==) (_: S< ^a >, _: S< ^a >) = true
     static member inline (+) (x: ^Nat, y) = 
       (^Nat: (member Add: _ -> _) x, y)
     static member inline (-) (S x, S y) = x - y
