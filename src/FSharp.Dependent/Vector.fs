@@ -4,7 +4,15 @@ module FSharp.Dependent.Vectors
 
 /// Fixed-length vectors.
 [<Struct>]
-type Vect< ^Nat, 'a when ^Nat: (member NatVal: unit -> int)> = { length: ^Nat; vect: 'a list }
+type Vect< 'Nat, 'Item > = { length: 'Nat; vect: 'Item list }
+  with
+    static member inline Zero = { length = Zero; vect = [] }
+    static member inline (+) (va: Vect< ^Nat, ^a>, vb: Vect< ^Nat, ^b>) : Vect< ^Nat, ^c>
+      when (^a or ^b): (static member (+): ^a * ^b -> ^c) =
+      { length = va.length; vect = List.map2 (fun x y -> x + y) va.vect vb.vect }
+    static member inline (-) (va: Vect< ^Nat, ^a>, vb: Vect< ^Nat, ^b>) : Vect< ^Nat, ^c>
+      when (^a or ^b): (static member (-): ^a * ^b -> ^c) =
+      { length = va.length; vect = List.map2 (fun x y -> x - y) va.vect vb.vect }
 
 /// Vector terminator.
 let VNil: Vect<Z, 'a> = { length = Zero; vect = [] }
@@ -20,12 +28,29 @@ let inline VCons (a: 'a) (xs: Vect< ^Nat, 'a >) : Vect<S< ^Nat >, 'a> = { length
 let inline (^+) (a: 'a) (xs: Vect< ^Nat, 'a >) : Vect<S< ^Nat >, 'a> = { length = S xs.length; vect = a :: xs.vect }
 
 /// Vector utility functions.
-/// Clone of size-sensitive functions from the List module.
+/// including clones of size-sensitive functions from the List module.
 module Vect =
   let empty = VNil
 
   let inline length (xs: Vect<_,_>) = xs.length
-  
+
+  let inline innerProduct (xs: Vect< ^Nat, ^a >) (ys: Vect< ^Nat, ^b >) : ^c
+    when ^Nat: (member IsStrictNat: bool)
+     and (^a or ^b): (static member (*): ^a * ^b -> ^c) =
+    List.map2 (fun x y -> x * y) xs.vect ys.vect |> List.sum
+
+  let inline vectorProduct3 (xs: Vect<S<S<S<Z>>>, ^a>) (ys: Vect<S<S<S<Z>>>, ^b>) : Vect<S<S<S<Z>>>, ^c>
+    when (^a or ^b): (static member (*): ^a * ^b -> ^c) =
+    {
+      length = S (S (S Zero));
+      vect = 
+        [
+          xs.vect.[2] * ys.vect.[3] - xs.vect.[3] * ys.vect.[2];
+          xs.vect.[3] * ys.vect.[1] - xs.vect.[1] * ys.vect.[3];
+          xs.vect.[1] * ys.vect.[2] - xs.vect.[2] * ys.vect.[1];
+        ]
+    }
+
   let inline map f (xs: Vect< ^Nat, 'a >)  =
     { length = xs.length; vect = xs.vect |> List.map f }
 

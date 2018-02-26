@@ -47,12 +47,15 @@ type INF = Inf
     /// Internal utility function. Never use.
     /// Utility field. Ensures that the type-level value and the term-level value are actually the same.
     member inline __.IsStrictNat = true
+    static member inline sing() = Inf
     static member inline (-) (x: INF, _) = x
     static member inline pred (Inf) = Inf
     static member inline succ (Inf) = Inf
 
 /// Type-level successor.
-type S< ^a when ^a: (member NatVal: unit -> int)> = S of ^a 
+type S< ^a when ^a: (member NatVal: unit -> int)
+            and ^a: (static member sing: unit -> ^a)> = 
+  | S of ^a 
   with
     /// Internal utility function. Use `+`.
     member inline this.Add (x: ^NatA) : S< ^NatR > =
@@ -68,8 +71,10 @@ type S< ^a when ^a: (member NatVal: unit -> int)> = S of ^a
     member inline this.Lower() = this
     /// Utility field. Ensures that the type-level value and the term-level value are actually the same.
     member inline __.IsStrictNat = true
+    static member inline sing() =
+      S(sing< ^a >)
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (x, y) = natVal x = natVal y
+    static member inline (==) (x: S< ^a >, y: S< ^a >) = true
     static member inline (+) (x: ^Nat, y) = 
       (^Nat: (member Add: _ -> _) x, y)
     static member inline (-) (S x, S y) = x - y
@@ -90,8 +95,9 @@ type Z = Zero
     /// Internal utility function. Never use.
     /// Utility field. Ensures that the type-level value and the term-level value are actually the same.
     member inline __.IsStrictNat = true
+    static member inline sing() = Zero
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (x, y) = natVal x = natVal y
+    static member inline (==) (Zero, Zero) = true
     static member inline (+) (x: ^Nat, y) = 
       (^Nat: (member Add: _ -> _) x, y)
     static member inline (-) (x: ^Nat, _: Z) = x
