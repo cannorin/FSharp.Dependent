@@ -43,6 +43,7 @@
     <Compile Include="../../paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fsi" />
     <Compile Include="../../paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs" />
     <Compile Include="NatProvider.fs" />
+    <Compile Include="SomeNat.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

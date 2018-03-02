@@ -47,7 +47,7 @@ type NatProvider (cfg) as this =
   let root = "FSharp.Dependent"
   let baseTy = typeof<obj>
   let prm = [ProvidedStaticParameter("value", typeof<int>)]
-  let ty = ProvidedTypeDefinition(thisAsm, root, "Nat", Some baseTy, isErased = true)
+  let ty = ProvidedTypeDefinition(thisAsm, root, "Nat", Some baseTy)
   do ty.DefineStaticParameters(
       parameters = prm,
       instantiationFunction = (fun tyName prmValues ->
@@ -55,12 +55,13 @@ type NatProvider (cfg) as this =
           | [| :? int as value |] ->
             if value < 0 then
               failwith "value is negative"
-            ty.AddXmlDoc "Type-level naturals."
             let n = ProviderUtils.createNatValue value in
-            let ty = ProvidedTypeDefinition(thisAsm, root, tyName, baseType = Some n.Type, isErased = true)
+            let ty = ProvidedTypeDefinition(thisAsm, root, tyName, baseType = Some n.Type)
             let valuet = ProvidedProperty("value", n.Type, isStatic = true, getterCode = fun _ -> Expr.Coerce(n, n.Type))
+            
             valuet.AddXmlDoc "Type-level natural number."
             ty.AddMember valuet
+            ty.AddXmlDoc "Type-level naturals."
             ty
           | _ -> failwith "unexpected parameter values"
         )
