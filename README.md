@@ -13,6 +13,7 @@ Example
 ```fsharp
 #r "FSharp.Dependent.dll"
 open FSharp.Dependent
+open System
 
 let three = Nat<3>.value
 let eight = Nat<8>.value
@@ -41,7 +42,7 @@ zs |> Vect.item Nat<5>.value |> printfn "%i" // 6
 //    'Z'
 
 let inline randomLessThan n =
-  let rand = System.Random().Next(0, natVal n - 1)
+  let rand = Random().Next(0, natVal n - 1)
   rand |> RuntimeNat.LTE <| pred n // existential quantifier simulation
 
 zs |> Vect.item (randomLessThan zs.length) |> printfn "%i"
@@ -55,6 +56,21 @@ zs.length |> pleaseGiveMeLessThan eleven // I'm happy with 7.
 let inline winwin x = randomLessThan x |> pleaseGiveMeLessThan x
 
 winwin eight
+
+let (>>=) x f = Option.bind f x
+let readNat name =
+  printf "%s > " name;
+  Console.ReadLine() |> Number.tryParse |> Option.map SomeNat
+
+readNat "input length" >>= mapSomeNat (fun (len: S<SomeNatVariable<"length">>) ->
+    let xs = Vect.init len (fun seed -> Random(seed).Next(0,100))
+    while true do
+      readNat "input index" >>= mapSomeNat (fun (x: RangedNat<Z, SomeNatVariable<"length">>) ->
+          xs |> Vect.item x |> printfn "xs[%i] = %i" (natVal x)
+        ) |> Option.defaultWith (fun () -> printfn "index is out of range!")
+    done
+  )
+
 ```
 
 Samples & documentation

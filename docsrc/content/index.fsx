@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin"
+//#I "../../src/FSharp.Dependent/bin/Debug"
 
 (**
 FSharp.Dependent
@@ -26,7 +26,7 @@ Example
 -------
 
 *)
-//#r "FSharp.Dependent.dll"
+#r "FSharp.Dependent.dll"
 open FSharp.Dependent
 
 let three = Nat<3>.value
@@ -55,8 +55,10 @@ zs |> Vect.item Nat<5>.value |> printfn "%i" // 6
 // but here has type
 //    'Z'
 
+open System
+
 let inline randomLessThan n =
-  let rand = System.Random().Next(0, natVal n - 1)
+  let rand = Random().Next(0, natVal n - 1)
   rand |> RuntimeNat.LTE <| pred n // existential quantifier simulation
 
 zs |> Vect.item (randomLessThan zs.length) |> printfn "%i"
@@ -70,6 +72,26 @@ zs.length |> pleaseGiveMeLessThan eleven // I'm happy with 7.
 let inline winwin x = randomLessThan x |> pleaseGiveMeLessThan x
 
 winwin eight
+
+(*** hide ***)
+module Console =
+  static member ReadLine() = ""
+module Number =
+  static member tryParse _ = Some 42
+
+let (>>=) x f = Option.bind f x
+let readNat name =
+  printf "%s > " name;
+  Console.ReadLine() |> Number.tryParse |> Option.map SomeNat
+
+readNat "input length" >>= mapSomeNat (fun (len: S<SomeNatVariable<"length">>) ->
+    let xs = Vect.init len (fun seed -> Random(seed).Next(0,100))
+    while true do
+      readNat "input index" >>= mapSomeNat (fun (x: RangedNat<Z, SomeNatVariable<"length">>) ->
+          xs |> Vect.item x |> printfn "xs[%i] = %i" (natVal x)
+        ) |> Option.defaultWith (fun () -> printfn "index is out of range!")
+    done
+  )
 
 (**
 Some more info

@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FSharp.Dependent"
+//#I "../../src/FSharp.Dependent/bin/Debug"
 
 (**
 Introducing your project
@@ -118,7 +118,8 @@ Vect.append cs xs |> Vect.length |> printRN
 
 printfn ""
 
-let rnd = System.Random()
+open System 
+let rnd = new Random()
 
 // returning rangeed naturals
 let inline randomLessThan (n: S< ^Nat >) =
@@ -148,4 +149,26 @@ let inline PleaseGiveMeMoreThan lim x =
 // win-win transactions
 PleaseGiveMeLessThan eight (randomLessThan eight)
 PleaseGiveMeMoreThan eight (randomMoreThan eight)
+
+
+(*** hide ***)
+module Console =
+  static member ReadLine() = ""
+module Number =
+  static member tryParse _ = Some 42
+
+let (>>=) x f = Option.bind f x
+let readNat name =
+  printf "%s > " name;
+  Console.ReadLine() |> Number.tryParse |> Option.map SomeNat
+
+// using existential type-level naturals
+readNat "input length" >>= mapSomeNat (fun (len: S<SomeNatVariable<"length">>) ->
+    let xs = Vect.init len (fun seed -> Random(seed).Next(0,100))
+    while true do
+      readNat "input index" >>= mapSomeNat (fun (x: RangedNat<Z, SomeNatVariable<"length">>) ->
+          xs |> Vect.item x |> printfn "xs[%i] = %i" (natVal x)
+        ) |> Option.defaultWith (fun () -> printfn "index is out of range!")
+    done
+  )
 

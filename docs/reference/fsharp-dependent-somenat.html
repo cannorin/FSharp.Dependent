@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>ProvidedTypeSymbol - FSharp.Dependent</title>
+    <title>SomeNat - FSharp.Dependent</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="cannorin"/>
@@ -35,62 +35,99 @@
 
 
 
-<h1>ProvidedTypeSymbol</h1>
+<h1>SomeNat</h1>
 <p>
-  <span>Namespace: ProviderImplementation.ProvidedTypes</span><br />
+  <span>Namespace: FSharp.Dependent</span><br />
 </p>
 <div class="xmldoc">
-<p>Represents an array or other symbolic type involving a provided type as the argument.
-See the type provider spec for the methods that must be implemented.
-Note that the type provider specification does not require us to implement pointer-equality for provided types.</p>
-
 </div>
-  <h3>Instance members</h3>
+
+<!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fsharp-dependent-somenat-somenat.html">SomeNat</a>
+          </td>
+          <td class="xmldoc"><p>Existential type-level naturals.</p>
+
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fsharp-dependent-somenat-somenatvariableprovider.html">SomeNatVariableProvider</a>
+          </td>
+          <td class="xmldoc"></td>
+        </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered module-list">
+    <thead>
+      <tr><td>Module</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="module-name">
+            <a href="fsharp-dependent-somenat-somenatinternal.html">SomeNatInternal</a>
+          </td>
+          <td class="xmldoc"><p>Do not use.</p>
+
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
+      <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '223', 223)" onmouseover="showTip(event, '223', 223)">
-            IsFSharpTypeAbbreviation
+          <code onmouseout="hideTip(event, '3', 3)" onmouseover="showTip(event, '3', 3)">
+            mapSomeNat exec sn
           </code>
-          <div class="tip" id="223">
-            <strong>Signature:</strong> bool<br />
-                      </div>
+          <div class="tip" id="3">
+            <strong>Signature:</strong> exec:(^Nat -&gt; ^a) -&gt; sn:INat -&gt; ^a option<br />
+                          <strong>Type parameters:</strong> ^Nat, ^a          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L605-605" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L36-36" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>For example, kg</p>
+          <p>Take a SomeNat and try to treat as the specified type-level variable.</p>
 
 
-              <p>CompiledName: <code>get_IsFSharpTypeAbbreviation</code></p>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '224', 224)" onmouseover="showTip(event, '224', 224)">
-            IsFSharpUnitAnnotated
+          <code onmouseout="hideTip(event, '4', 4)" onmouseover="showTip(event, '4', 4)">
+            withSomeNat i exec
           </code>
-          <div class="tip" id="224">
-            <strong>Signature:</strong> bool<br />
-                      </div>
+          <div class="tip" id="4">
+            <strong>Signature:</strong> i:int -&gt; exec:(^Nat -&gt; ^a) -&gt; ^a option<br />
+                          <strong>Type parameters:</strong> ^Nat, ^a          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fs#L608-608" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L49-49" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>For example, int<kg> or int<kilogram></p>
+          <p>Take an integer and try to treat as the specified type-level variable.</p>
 
 
-              <p>CompiledName: <code>get_IsFSharpUnitAnnotated</code></p>
         </td>
       </tr>
     </tbody>

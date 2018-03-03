@@ -91,8 +91,10 @@
 <span class="l">42: </span>
 <span class="l">43: </span>
 <span class="l">44: </span>
+<span class="l">45: </span>
+<span class="l">46: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//#r &quot;FSharp.Dependent.dll&quot;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;FSharp.Dependent.dll&quot;</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FSharp</span><span class="o">.</span><span class="i">Dependent</span>
 
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">three</span> <span class="o">=</span> <span class="i">Nat</span><span class="o">&lt;</span><span class="n">3</span><span class="o">&gt;</span><span class="o">.</span><span class="i">value</span>
@@ -121,21 +123,23 @@
 <span class="c">// but here has type</span>
 <span class="c">//    &#39;Z&#39;</span>
 
-<span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="f">randomLessThan</span> <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">n</span> <span class="o">=</span>
-  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">rand</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="t">Random</span>()<span class="o">.</span><span class="f">Next</span>(<span class="n">0</span>, <span class="i">natVal</span> <span onmouseout="hideTip(event, 'fs11', 22)" onmouseover="showTip(event, 'fs11', 22)" class="i">n</span> <span class="o">-</span> <span class="n">1</span>)
-  <span onmouseout="hideTip(event, 'fs12', 23)" onmouseover="showTip(event, 'fs12', 23)" class="i">rand</span> <span class="o">|&gt;</span> <span class="i">RuntimeNat</span><span class="o">.</span><span class="i">LTE</span> <span class="o">&lt;|</span> <span class="i">pred</span> <span onmouseout="hideTip(event, 'fs11', 24)" onmouseover="showTip(event, 'fs11', 24)" class="i">n</span> <span class="c">// existential quantifier simulation</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">System</span>
 
-<span onmouseout="hideTip(event, 'fs8', 25)" onmouseover="showTip(event, 'fs8', 25)" class="i">zs</span> <span class="o">|&gt;</span> <span class="i">Vect</span><span class="o">.</span><span class="i">item</span> (<span onmouseout="hideTip(event, 'fs10', 26)" onmouseover="showTip(event, 'fs10', 26)" class="i">randomLessThan</span> <span onmouseout="hideTip(event, 'fs8', 27)" onmouseover="showTip(event, 'fs8', 27)" class="i">zs</span><span class="o">.</span><span class="i">length</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 28)" onmouseover="showTip(event, 'fs9', 28)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%i</span><span class="s">&quot;</span>
+<span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="f">randomLessThan</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">n</span> <span class="o">=</span>
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">rand</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="t">Random</span>()<span class="o">.</span><span class="f">Next</span>(<span class="n">0</span>, <span class="i">natVal</span> <span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="i">n</span> <span class="o">-</span> <span class="n">1</span>)
+  <span onmouseout="hideTip(event, 'fs13', 23)" onmouseover="showTip(event, 'fs13', 23)" class="i">rand</span> <span class="o">|&gt;</span> <span class="i">RuntimeNat</span><span class="o">.</span><span class="i">LTE</span> <span class="o">&lt;|</span> <span class="i">pred</span> <span onmouseout="hideTip(event, 'fs12', 24)" onmouseover="showTip(event, 'fs12', 24)" class="i">n</span> <span class="c">// existential quantifier simulation</span>
+
+<span onmouseout="hideTip(event, 'fs8', 25)" onmouseover="showTip(event, 'fs8', 25)" class="i">zs</span> <span class="o">|&gt;</span> <span class="i">Vect</span><span class="o">.</span><span class="i">item</span> (<span onmouseout="hideTip(event, 'fs11', 26)" onmouseover="showTip(event, 'fs11', 26)" class="i">randomLessThan</span> <span onmouseout="hideTip(event, 'fs8', 27)" onmouseover="showTip(event, 'fs8', 27)" class="i">zs</span><span class="o">.</span><span class="i">length</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 28)" onmouseover="showTip(event, 'fs9', 28)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%i</span><span class="s">&quot;</span>
 
 <span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs15', 29)" onmouseover="showTip(event, 'fs15', 29)" class="f">pleaseGiveMeLessThan</span> <span onmouseout="hideTip(event, 'fs16', 30)" onmouseover="showTip(event, 'fs16', 30)" class="i">limit</span> <span onmouseout="hideTip(event, 'fs17', 31)" onmouseover="showTip(event, 'fs17', 31)" class="i">x</span> <span class="o">=</span>
   <span class="i">Constraint</span><span class="o">.</span><span class="i">LTETerm</span>(<span onmouseout="hideTip(event, 'fs17', 32)" onmouseover="showTip(event, 'fs17', 32)" class="i">x</span>, <span class="i">pred</span> <span onmouseout="hideTip(event, 'fs16', 33)" onmouseover="showTip(event, 'fs16', 33)" class="i">limit</span>); <span class="c">// this does nothing in term-level but adds a constraint in type level, here abuses F#&#39;s constraint solver!</span>
   <span onmouseout="hideTip(event, 'fs9', 34)" onmouseover="showTip(event, 'fs9', 34)" class="f">printfn</span> <span class="s">&quot;I&#39;m happy with </span><span class="pf">%i</span><span class="s">.&quot;</span> (<span class="i">natVal</span> <span onmouseout="hideTip(event, 'fs17', 35)" onmouseover="showTip(event, 'fs17', 35)" class="i">x</span>)
 
-<span onmouseout="hideTip(event, 'fs8', 36)" onmouseover="showTip(event, 'fs8', 36)" class="i">zs</span><span class="o">.</span><span class="i">length</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 37)" onmouseover="showTip(event, 'fs15', 37)" class="f">pleaseGiveMeLessThan</span> <span onmouseout="hideTip(event, 'fs4', 38)" onmouseover="showTip(event, 'fs4', 38)" class="i">eleven</span> <span class="c">// I&#39;m happy with 7.</span>
+<span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="i">zs</span><span class="o">.</span><span class="i">length</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 37)" onmouseover="showTip(event, 'fs15', 37)" class="f">pleaseGiveMeLessThan</span> <span onmouseout="hideTip(event, 'fs4', 38)" onmouseover="showTip(event, 'fs4', 38)" class="i">eleven</span> <span class="c">// I&#39;m happy with 7.</span>
 
-<span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs18', 39)" onmouseover="showTip(event, 'fs18', 39)" class="f">winwin</span> <span onmouseout="hideTip(event, 'fs17', 40)" onmouseover="showTip(event, 'fs17', 40)" class="i">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 41)" onmouseover="showTip(event, 'fs10', 41)" class="f">randomLessThan</span> <span onmouseout="hideTip(event, 'fs17', 42)" onmouseover="showTip(event, 'fs17', 42)" class="i">x</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 43)" onmouseover="showTip(event, 'fs15', 43)" class="f">pleaseGiveMeLessThan</span> <span onmouseout="hideTip(event, 'fs17', 44)" onmouseover="showTip(event, 'fs17', 44)" class="i">x</span>
+<span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs19', 39)" onmouseover="showTip(event, 'fs19', 39)" class="f">winwin</span> <span onmouseout="hideTip(event, 'fs17', 40)" onmouseover="showTip(event, 'fs17', 40)" class="i">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 41)" onmouseover="showTip(event, 'fs11', 41)" class="f">randomLessThan</span> <span onmouseout="hideTip(event, 'fs17', 42)" onmouseover="showTip(event, 'fs17', 42)" class="i">x</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 43)" onmouseover="showTip(event, 'fs15', 43)" class="f">pleaseGiveMeLessThan</span> <span onmouseout="hideTip(event, 'fs17', 44)" onmouseover="showTip(event, 'fs17', 44)" class="i">x</span>
 
-<span onmouseout="hideTip(event, 'fs18', 45)" onmouseover="showTip(event, 'fs18', 45)" class="f">winwin</span> <span onmouseout="hideTip(event, 'fs3', 46)" onmouseover="showTip(event, 'fs3', 46)" class="i">eight</span>
+<span onmouseout="hideTip(event, 'fs19', 45)" onmouseover="showTip(event, 'fs19', 45)" class="f">winwin</span> <span onmouseout="hideTip(event, 'fs3', 46)" onmouseover="showTip(event, 'fs3', 46)" class="i">eight</span>
 </code></pre></td>
 </tr>
 </table>
@@ -171,15 +175,24 @@ redistribution for both commercial and non-commercial purposes. For more informa
 <div class="tip" id="fs7">val id : x:&#39;T -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.id</div>
 <div class="tip" id="fs8">val zs : &#39;a<br /><br />Full name: Index.zs</div>
 <div class="tip" id="fs9">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs10">val randomLessThan : n:&#39;a -&gt; &#39;b<br /><br />Full name: Index.randomLessThan</div>
-<div class="tip" id="fs11">val n : &#39;a</div>
-<div class="tip" id="fs12">val rand : int</div>
-<div class="tip" id="fs13">namespace System</div>
-<div class="tip" id="fs14">Multiple items<br />type Random =<br />&#160;&#160;new : unit -&gt; Random + 1 overload<br />&#160;&#160;member Next : unit -&gt; int + 2 overloads<br />&#160;&#160;member NextBytes : buffer:byte[] -&gt; unit<br />&#160;&#160;member NextDouble : unit -&gt; float<br /><br />Full name: System.Random<br /><br />--------------------<br />System.Random() : unit<br />System.Random(Seed: int) : unit</div>
+<div class="tip" id="fs10">namespace System</div>
+<div class="tip" id="fs11">val randomLessThan : n:&#39;a -&gt; &#39;b<br /><br />Full name: Index.randomLessThan</div>
+<div class="tip" id="fs12">val n : &#39;a</div>
+<div class="tip" id="fs13">val rand : int</div>
+<div class="tip" id="fs14">Multiple items<br />type Random =<br />&#160;&#160;new : unit -&gt; Random + 1 overload<br />&#160;&#160;member Next : unit -&gt; int + 2 overloads<br />&#160;&#160;member NextBytes : buffer:byte[] -&gt; unit<br />&#160;&#160;member NextDouble : unit -&gt; float<br /><br />Full name: System.Random<br /><br />--------------------<br />Random() : unit<br />Random(Seed: int) : unit</div>
 <div class="tip" id="fs15">val pleaseGiveMeLessThan : limit:&#39;a -&gt; x:&#39;b -&gt; unit<br /><br />Full name: Index.pleaseGiveMeLessThan</div>
 <div class="tip" id="fs16">val limit : &#39;a</div>
 <div class="tip" id="fs17">val x : &#39;a</div>
-<div class="tip" id="fs18">val winwin : x:&#39;a -&gt; unit<br /><br />Full name: Index.winwin</div>
+<div class="tip" id="fs18">val zs : &#39;a * &#39;b * &#39;c * &#39;d * &#39;e * &#39;f * &#39;g * &#39;h * &#39;i * &#39;j * &#39;k * &#39;l * &#39;m * &#39;n * &#39;o * &#39;p * &#39;q * &#39;r * &#39;s * &#39;t * &#39;a1<br /><br />Full name: Index.zs</div>
+<div class="tip" id="fs19">val winwin : x:&#39;a -&gt; unit<br /><br />Full name: Index.winwin</div>
+<div class="tip" id="fs20">type Console =<br />&#160;&#160;static member BackgroundColor : ConsoleColor with get, set<br />&#160;&#160;static member Beep : unit -&gt; unit + 1 overload<br />&#160;&#160;static member BufferHeight : int with get, set<br />&#160;&#160;static member BufferWidth : int with get, set<br />&#160;&#160;static member CapsLock : bool<br />&#160;&#160;static member Clear : unit -&gt; unit<br />&#160;&#160;static member CursorLeft : int with get, set<br />&#160;&#160;static member CursorSize : int with get, set<br />&#160;&#160;static member CursorTop : int with get, set<br />&#160;&#160;static member CursorVisible : bool with get, set<br />&#160;&#160;...<br /><br />Full name: System.Console</div>
+<div class="tip" id="fs21">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs22">module Option<br /><br />from Microsoft.FSharp.Core</div>
+<div class="tip" id="fs23">val bind : binder:(&#39;T -&gt; &#39;U option) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.bind</div>
+<div class="tip" id="fs24">val printf : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printf</div>
+<div class="tip" id="fs25">Console.ReadLine() : string</div>
+<div class="tip" id="fs26">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.map</div>
+<div class="tip" id="fs27">val defaultWith : defThunk:(unit -&gt; &#39;T) -&gt; option:&#39;T option -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Option.defaultWith</div>
 
         </div>
         <div class="span3">

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>INF - FSharp.Dependent</title>
+    <title>SomeNat - FSharp.Dependent</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="cannorin"/>
@@ -35,13 +35,13 @@
 
 
 
-<h1>INF</h1>
+<h1>SomeNat</h1>
 <p>
   <span>Namespace: FSharp.Dependent</span><br />
-  <span>Parent Module: <a href="fsharp-dependent-typenats.html">TypeNats</a></span>
+  <span>Parent Module: <a href="fsharp-dependent-somenat.html">SomeNat</a></span>
 </p>
 <div class="xmldoc">
-<p>Type-level infinite.</p>
+<p>Existential type-level naturals.</p>
 
 </div>
   <h3>Union Cases</h3>
@@ -53,15 +53,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '74', 74)" onmouseover="showTip(event, '74', 74)">
-            Inf
+          <code onmouseout="hideTip(event, '69', 69)" onmouseover="showTip(event, '69', 69)">
+            SomeNat(int)
           </code>
-          <div class="tip" id="74">
-            <strong>Signature:</strong> <br />
+          <div class="tip" id="69">
+            <strong>Signature:</strong> int<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L45-45" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L16-16" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -79,59 +79,19 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '75', 75)" onmouseover="showTip(event, '75', 75)">
-            Add(arg1)
+          <code onmouseout="hideTip(event, '70', 70)" onmouseover="showTip(event, '70', 70)">
+            Add(x)
           </code>
-          <div class="tip" id="75">
-            <strong>Signature:</strong> &#39;?7870 -&gt; INF<br />
-                          <strong>Type parameters:</strong> '?7870          </div>
+          <div class="tip" id="70">
+            <strong>Signature:</strong> x:^NatA -&gt; ^NatR<br />
+                          <strong>Type parameters:</strong> ^NatA, ^NatR          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L48-48" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L21-21" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Internal utility function. Use <code>+</code>.</p>
-
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '76', 76)" onmouseover="showTip(event, '76', 76)">
-            Lower()
-          </code>
-          <div class="tip" id="76">
-            <strong>Signature:</strong> unit -&gt; INF<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L52-52" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Internal utility function. Never use.</p>
-
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '77', 77)" onmouseover="showTip(event, '77', 77)">
-            Upper()
-          </code>
-          <div class="tip" id="77">
-            <strong>Signature:</strong> unit -&gt; INF<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L50-50" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Internal utility function. Never use.</p>
 
 
         </td>
@@ -147,15 +107,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '78', 78)" onmouseover="showTip(event, '78', 78)">
-            ( - )(x, arg2)
+          <code onmouseout="hideTip(event, '71', 71)" onmouseover="showTip(event, '71', 71)">
+            ( - )(x, n)
           </code>
-          <div class="tip" id="78">
-            <strong>Signature:</strong> (x:INF * &#39;?7874) -&gt; INF<br />
-                          <strong>Type parameters:</strong> '?7874          </div>
+          <div class="tip" id="71">
+            <strong>Signature:</strong> (x:S&lt;^X&gt; * n:^N) -&gt; S&lt;^R&gt;<br />
+                          <strong>Type parameters:</strong> ^X, ^N, ^R          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L53-53" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L23-23" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -166,55 +126,20 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '79', 79)" onmouseover="showTip(event, '79', 79)">
-            pred(Inf)
+          <code onmouseout="hideTip(event, '72', 72)" onmouseover="showTip(event, '72', 72)">
+            ( + )(arg1, arg2)
           </code>
-          <div class="tip" id="79">
-            <strong>Signature:</strong> Inf:INF -&gt; INF<br />
+          <div class="tip" id="72">
+            <strong>Signature:</strong> (SomeNat * SomeNat) -&gt; SomeNat<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L54-54" class="github-link">
+            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/SomeNat.fs#L27-27" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '80', 80)" onmouseover="showTip(event, '80', 80)">
-            sing(arg1)
-          </code>
-          <div class="tip" id="80">
-            <strong>Signature:</strong> INF -&gt; INF<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L56-56" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '81', 81)" onmouseover="showTip(event, '81', 81)">
-            succ(Inf)
-          </code>
-          <div class="tip" id="81">
-            <strong>Signature:</strong> Inf:INF -&gt; INF<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/cannorin/FSharp.Dependent/tree/master/src/FSharp.Dependent/TypeNats.fs#L55-55" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
+              <p>CompiledName: <code>op_Addition</code></p>
         </td>
       </tr>
     </tbody>
