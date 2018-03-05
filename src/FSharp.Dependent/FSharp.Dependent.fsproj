@@ -38,6 +38,8 @@
     <Content Include="App.config" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Singleton.fs" />
+    <Compile Include="TypeLevelComputation.fs" />
+    <Compile Include="TypeBool.fs" />
     <Compile Include="TypeNats.fs" />
     <Compile Include="Vector.fs" />
     <Compile Include="../../paket-files/fsprojects/FSharp.TypeProviders.StarterPack/src/ProvidedTypes.fsi" />

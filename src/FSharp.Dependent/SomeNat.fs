@@ -15,8 +15,6 @@ open ProviderImplementation.ProvidedTypes
 /// Existential type-level naturals.
 type SomeNat = SomeNat of int with
   interface IStrictNat
-  interface INat with
-    member this.NatVal() = let (SomeNat n) = this in n
   /// Internal utility function. Use `+`.
   member inline this.Add (x: ^NatA) : ^NatR =
     (^NatA: (member Add: _ -> _) x,this)
@@ -25,6 +23,8 @@ type SomeNat = SomeNat of int with
     let (S x') = x in
     S ((^X or ^N): (static member (-): _ * _ -> _) x',n)
   static member inline (+) (SomeNat m, SomeNat n) = SomeNat (m+n)
+  static member inline natVal (SomeNat i) = i
+  static member inline eval x = x
 
 /// Do not use.
 module SomeNatInternal =
@@ -47,7 +47,7 @@ let inline mapSomeNat (exec: ^Nat -> ^a) sn : ^a option =
 
 /// Take an integer and try to treat as the specified type-level variable.
 let inline withSomeNat (i: int) (exec: ^Nat -> ^a) : ^a option =
-  mapSomeNat exec (SomeNat i :> INat)
+  mapSomeNat exec (SomeNat i)
 
 [<TypeProvider>]
 type SomeNatVariableProvider(cfg) as this =
@@ -143,8 +143,8 @@ type SomeNatVariableProvider(cfg) as this =
                   ProvidedParameter("x", ty);
                   ProvidedParameter("y", ty)
                 ],
-                typeof<bool>,
-                invokeCode = (fun _ -> <@@ true @@>),
+                typeof<True>,
+                invokeCode = (fun _ -> <@@ True @@>),
                 isStatic = true
               ) |> ty.AddMember 
             

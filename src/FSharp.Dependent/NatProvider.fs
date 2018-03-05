@@ -58,9 +58,13 @@ type NatProvider (cfg) as this =
             let n = ProviderUtils.createNatValue value in
             let ty = ProvidedTypeDefinition(thisAsm, root, tyName, baseType = Some n.Type)
             let valuet = ProvidedProperty("value", n.Type, isStatic = true, getterCode = fun _ -> Expr.Coerce(n, n.Type))
-            
+            let sing = ProvidedMethod("sing", [ProvidedParameter("dummy", ty)], ty, isStatic = true, invokeCode = fun _ -> Expr.Coerce(n, n.Type))
+             
+            let eval = ProvidedMethod("eval", [ProvidedParameter("dummy", ty)], n.Type, isStatic = true, invokeCode = fun _ -> Expr.Coerce(n, n.Type))
             valuet.AddXmlDoc "Type-level natural number."
             ty.AddMember valuet
+            ty.AddMember sing
+            ty.AddMember eval
             ty.AddXmlDoc "Type-level naturals."
             ty
           | _ -> failwith "unexpected parameter values"
