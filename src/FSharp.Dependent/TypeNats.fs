@@ -28,6 +28,12 @@ let inline pred (x: ^Nat) =
 let inline succ (x: ^Nat) =
   (^Nat: (static member succ:_ -> _) x)
 
+let inline (>=^) x y =
+  (x >^ y) ||^ (x =^ y)
+
+let inline (<=^) x y =
+  (x <^ y) ||^ (x =^ y)
+
 /// Type-level infinite.
 type INF = Inf
   with
@@ -39,6 +45,9 @@ type INF = Inf
     /// Internal utility function. Never use.
     member inline this.Lower() = this
     static member inline (-) (x: INF, _) = x
+    static member inline (>^) (_: INF, _) = True
+    static member inline (<^) (_: INF, _) = False
+    static member inline (=^) (Inf, Inf) = True
     static member inline pred (Inf) = Inf
     static member inline succ (Inf) = Inf
     static member inline sing (_: INF) = Inf
@@ -58,9 +67,14 @@ type S< 'a > =
     /// Internal utility function. Never use.
     member inline this.Lower() = this
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (S x, S y) = x == y 
-    static member inline (+) (x: ^Nat, y) = 
-      (^Nat: (member Add: _ -> _) x, y)
+    static member inline (=^) (S x, S y) = x =^ y 
+    static member inline (=^) (_, Inf) = False
+    static member inline (=^) (Inf, _) = False
+    static member inline (>^) (S x, S y) = x >^ y 
+    static member inline (>^) (_, Inf) = False
+    static member inline (<^) (S x, S y) = x <^ y 
+    static member inline (<^) (_, Inf) = True
+    static member inline (+) (S x : S< ^X >, y) = S (^X: (static member (+): ^X * _ -> _) x,y)
     static member inline (-) (S x, S y) = x - y
     static member inline pred (S x) = x
     static member inline succ (x: S<_>) = S x
@@ -86,11 +100,20 @@ type Z = Zero
     /// Internal utility function. Never use.
     member inline this.Lower() = this
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (Zero, Zero) = True
-    static member inline (==) (S _, _) = False
-    static member inline (==) (_, S _) = False
-    static member inline (+) (x: ^Nat, y) = 
-      (^Nat: (member Add: _ -> _) x, y)
+    static member inline (=^) (Zero, Zero) = True
+    static member inline (=^) (S _, _) = False
+    static member inline (=^) (_, S _) = False
+    static member inline (=^) (Inf, _) = False
+    static member inline (=^) (_, Inf) = False
+    static member inline (>^) (Inf, _) = True
+    static member inline (>^) (S _, Zero) = True
+    static member inline (>^) (_, Inf) = False
+    static member inline (>^) (Zero, _) = False
+    static member inline (<^) (Inf, _) = False
+    static member inline (<^) (_, Zero) = False
+    static member inline (<^) (Zero, S _) = True
+    static member inline (<^) (_, Inf) = True
+    static member inline (+) (Zero, y) = y
     static member inline (-) (x: ^Nat, _: Z) = x
     static member inline succ Zero = S Zero
     static member inline sing (_: Z) = Zero
@@ -98,7 +121,7 @@ type Z = Zero
     static member inline natVal (_: Z) = 0
     static member inline tryCast (_: Z, i) = if i = 0 then Some Zero else None
     interface IStrictNat
-    
+
 /// Range-bounded type-level natural.
 type RangedNat< 'LowerLimit, 'UpperLimit
                           when 'UpperLimit :> IStrictNat
@@ -113,7 +136,7 @@ type RangedNat< 'LowerLimit, 'UpperLimit
     member inline this.Lower() = let (RangedNat (lower, _, _)) = this in lower
     static member inline natVal (RangedNat(_, x, _)) = x
     /// We cannot implement custom equality for type-level naturals due to their SRTPs. Use this instead of `=`.
-    static member inline (==) (RangedNat(lx, _, ux), RangedNat(ly, _, uy)) = And(lx == ly, ux == uy) |> eval
+    static member inline (=^) (RangedNat(lx, _, ux), RangedNat(ly, _, uy)) = And(lx =^ ly, ux =^ uy) |> eval
     static member inline (+) (x: RangedNat< ^NatX1, ^NatX2>, y: ^NatY) =
       let (RangedNat (lower_x, x', upper_x)) = x
       let y' = natVal y
@@ -174,7 +197,7 @@ module Constraint =
   /// Short-hand alternative to `Constraint.GTE` that takes term arguments instead of type arguments.
   let inline GTETerm (_: ^NatL, _: ^NatR) = GTE< ^NatL, ^NatR, _ >
 
-  let inline Eq< ^NatL, ^NatR when ^NatL: (static member (==): ^NatL -> ^NatR -> bool)
+  let inline Eq< ^NatL, ^NatR when ^NatL: (static member (=^): ^NatL -> ^NatR -> bool)
                                     and ^NatL: (static member natVal: ^NatL -> int)
                                     and ^NatR: (static member natVal: ^NatR -> int) > = ()
 

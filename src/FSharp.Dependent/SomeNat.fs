@@ -23,6 +23,9 @@ type SomeNat = SomeNat of int with
     let (S x') = x in
     S ((^X or ^N): (static member (-): _ * _ -> _) x',n)
   static member inline (+) (SomeNat m, SomeNat n) = SomeNat (m+n)
+  static member inline (+) (x, Zero) = x
+  static member inline (+) (x, S y) = S (x + y)
+  static member inline succ x = S x
   static member inline natVal (SomeNat i) = i
   static member inline eval x = x
 
@@ -138,7 +141,7 @@ type SomeNatVariableProvider(cfg) as this =
             ProvidedMethod("resetCache", [], typeof<unit>, isStatic = true, invokeCode = fun _ -> <@@ (%%set: int option -> unit) None @@>) |> ty.AddMember
 
             ProvidedMethod(
-                "op_EqualsEquals",
+                "op_EqualsHat",
                 [
                   ProvidedParameter("x", ty);
                   ProvidedParameter("y", ty)
