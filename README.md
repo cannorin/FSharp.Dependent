@@ -1,6 +1,8 @@
 FSharp.Dependent
 ======================
 
+**ARCHIVED: Seeking better way in https://github.com/cannorin/FSharp.TypeLevel**
+
 The FSharp.Dependent library can be [installed from NuGet](ttps://nuget.org/packages/FSharp.Dependent)
 
   PM> Install-Package FSharp.Dependent
